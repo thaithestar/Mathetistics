@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.thait.mathetistics.Algebra1">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Algebra 1"
+        android:id="@+id/title"
+        android:textColor="@color/purple"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Linear Equation"
+        android:id="@+id/lequation"
+        android:textColor="@color/green"
+        android:textSize="15sp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slope"
+        android:id="@+id/slope"
+        android:textColor="@color/green"
+        android:textSize="15sp"
+        android:layout_below="@+id/lequation"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FACTORING"
+        android:id="@+id/factor"
+        android:textColor="@color/green"
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distribution/FOILING"
+        android:id="@+id/foil"
+        android:textColor="@color/green"
+        android:textSize="15sp"
+        android:layout_below="@+id/slope"
+        android:layout_alignRight="@+id/title"
+        android:layout_alignEnd="@+id/title"
+        android:layout_marginTop="69dp" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/back"
+        android:textColor="@color/red"
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/foil"
+        android:layout_toStartOf="@+id/foil" />
+
+</RelativeLayout>

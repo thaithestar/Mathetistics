@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.thait.mathetistics.MainActivity">
+    tools:context="com.example.thait.mathetistics.MainActivity"
+    android:background="@color/DarkBlue">
 
 
 
@@ -18,7 +19,8 @@
             android:layout_marginTop="70dp"
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
-            android:text="Username"/>
+            android:text="Username"
+            android:id="@+id/username"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -26,7 +28,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
-            android:text="Password"/>
+            android:text="Password"
+            android:id="@+id/password"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,12 +41,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Log In"
+                android:id="@+id/Login"
                 android:layout_marginLeft="80dp"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:layout_marginLeft="40dp"/>
+                android:layout_marginLeft="40dp"
+                android:onClick="register"/>
         </LinearLayout>
 
     </LinearLayout>
