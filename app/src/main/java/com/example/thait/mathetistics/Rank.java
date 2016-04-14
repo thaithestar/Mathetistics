@@ -12,6 +12,12 @@ public class Rank extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
         display = (TextView)findViewById(R.id.display);
+        String[] rankList = MainActivity.database.getRankName();
+        String stored = "";
+        for(int i = 0; i < rankList.length;i++){
+            stored += (i+1) + ". " + rankList[i] + "\n";
+        }
+        display.setText(stored);
 
     }
 }
