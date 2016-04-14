@@ -8,7 +8,7 @@ import android.view.View;
 public class TopicSelection extends AppCompatActivity {
 
     public void quitL(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Choice.class);
         startActivity(intent);
     }
 

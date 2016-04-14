@@ -56,7 +56,7 @@ public class Database {
                 User temp = users.get(i+1);
                 users.remove(users.get(i+1));
                 users.add(i,temp);
-                i--;
+                i= -1;
             }
         }
     }
