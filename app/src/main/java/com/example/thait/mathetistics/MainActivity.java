@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void register(View view) {
         Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
     }
 
     @Override
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public static String getLoginUser() {
         return loginUser;
     }
