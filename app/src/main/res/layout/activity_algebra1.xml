@@ -20,48 +20,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Linear Equation"
-        android:id="@+id/lequation"
-        android:textColor="@color/green"
-        android:textSize="15sp"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Slope"
-        android:id="@+id/slope"
-        android:textColor="@color/green"
-        android:textSize="15sp"
-        android:layout_below="@+id/lequation"
-        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FACTORING"
-        android:id="@+id/factor"
-        android:textColor="@color/green"
-        android:textSize="15sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Distribution/FOILING"
-        android:id="@+id/foil"
-        android:textColor="@color/green"
-        android:textSize="15sp"
-        android:layout_below="@+id/slope"
-        android:layout_alignRight="@+id/title"
-        android:layout_alignEnd="@+id/title"
-        android:layout_marginTop="69dp" />
+
+
 
 
     <Button
@@ -71,9 +34,55 @@
         android:id="@+id/back"
         android:textColor="@color/red"
         android:textSize="15sp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/foil"
-        android:layout_toStartOf="@+id/foil"
-        android:onClick="back2"/>
+        android:onClick="back2"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="52dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Linear equation"
+            android:id="@+id/lequation"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:onClick="linear"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Slope"
+            android:id="@+id/slope"
+            android:textSize="30dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Factoring"
+            android:id="@+id/textView4"
+            android:textSize="30dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Distribution/FOIL"
+            android:id="@+id/foil"
+            android:textSize="30dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 
 </RelativeLayout>

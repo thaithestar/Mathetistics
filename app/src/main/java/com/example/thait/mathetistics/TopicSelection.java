@@ -27,7 +27,7 @@ public class TopicSelection extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void toGeomtry(View view) {
+    public void toGeometry(View view) {
         Intent intent = new Intent(this, Geometry.class);
         startActivity(intent);
     }
