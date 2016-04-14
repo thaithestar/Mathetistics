@@ -37,35 +37,40 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:hint="Username"
+            android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:hint="Password"
+            android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
         <EditText
             android:id="@+id/confpw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirm Password"
+            android:hint="Confirm Password"
+            android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:hint="Email"
+            android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
         <EditText
             android:id="@+id/confemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirm Email"
+            android:hint="Confirm Email"
+            android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
     </LinearLayout>
@@ -85,6 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Sign Up"
+            android:background="@color/blue"
+            android:textColor="@color/white"
             android:layout_marginRight="20dp"/>
 
         <Button
@@ -93,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cancel"
+            android:textColor="@color/blue"
             android:onClick="cancelClicked"
             android:layout_marginLeft="20dp"/>
 
