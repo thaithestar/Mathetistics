@@ -41,6 +41,29 @@ public class Database {
         return null;
     }
 
+    public boolean findName(String name){
+        Iterator<User> itr = users.iterator();
+        while(itr.hasNext()){
+            User temp = itr.next();
+            if(temp.getUsername().equalsIgnoreCase(name)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean findEmail(String ename){
+        Iterator<User> itr = users.iterator();
+        while(itr.hasNext()){
+            User temp = itr.next();
+            if(temp.getEmail().equalsIgnoreCase(ename)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public List<User> getUList(){
         return users;
     }
@@ -65,7 +88,7 @@ public class Database {
         String [] names = new String[10];
         for(int i =0; i < 10; i++){
             if(i < users.size()) {
-                names[i] = users.get(i).getUsername();
+                names[i] = users.get(i).getUsername() + "\t\t" + users.get(i).getScore();
             }
         }
         return names;
