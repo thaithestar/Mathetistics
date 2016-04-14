@@ -11,13 +11,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public Database database = new Database();
+    public static Database database = new Database();
+    Button login;
+    EditText userName,passwords;
+    private static String loginUser;
+    private static double userScore;
+
+
     public void register(View view) {
         Intent intent = new Intent(this, SignUp.class);
     }
 
-    Button login;
-    EditText userName,passwords;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 User myUser = database.getUser(name);
                 if(myUser != null){
                     if(myUser.getPassword().equals(pass)){
+                        loginUser = myUser.getUsername();
+                        userScore = myUser.getScore();
                         startActivity(log);
                     }
                     else{
@@ -50,4 +56,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public static String getLoginUser() {
+        return loginUser;
+    }
+    public static double getUserScore() {
+        return userScore;
+    }
+
 }

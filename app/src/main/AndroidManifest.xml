@@ -25,7 +25,11 @@
         <activity android:name=".Geometry" />
         <activity android:name=".Calculus" />
         <activity android:name=".Choice" />
-        <activity android:name=".LinearEquation"></activity>
+        <activity android:name=".LinearEquation" />
+        <activity android:name=".PythagoreanTheorem" />
+        <activity android:name=".Compete" />
+        <activity android:name=".Rank" />
+        <activity android:name=".Exercise"></activity>
     </application>
 
 </manifest>

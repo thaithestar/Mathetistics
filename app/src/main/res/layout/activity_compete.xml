@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.thait.mathetistics.Choice"
+    tools:context="com.example.thait.mathetistics.Compete"
     android:background="@color/black">
 
     <TextView
@@ -19,34 +19,45 @@
         android:layout_marginTop="67dp"
         android:textColor="@color/Gold"
         android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/compete"
+        android:layout_alignStart="@+id/compete" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Score"
+        android:id="@+id/textView3"
+        android:textColor="@color/LightSalmon"
+        android:textSize="30dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/compete"
+        android:layout_alignStart="@+id/compete" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Compete"
+        android:text="Do Exercise"
         android:id="@+id/compete"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:background="@color/black"
-        android:onClick="compete"
+        android:onClick="Problems"
         android:layout_above="@+id/learn"
-        android:layout_alignLeft="@+id/learn"
-        android:layout_alignStart="@+id/learn" />
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Learn"
+        android:text="Display Ranking"
         android:id="@+id/learn"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:background="@color/black"
-        android:onClick="learn"
+        android:onClick="ranked"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2" />
+        android:layout_alignLeft="@+id/compete"
+        android:layout_alignStart="@+id/compete" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -60,7 +71,9 @@
         android:textColor="@color/lime"
         android:background="@color/black"
         android:textSize="20dp"
-        android:onClick="logout"/>
+        android:onClick="logoutC"/>
+
+
 
 
 </RelativeLayout>

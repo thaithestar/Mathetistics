@@ -18,6 +18,8 @@ public class Database {
         User Thai = new User("Thai","thai9","tthao6@wisc.edu");
         User Eek = new User("Eek","algor1","al@gmail.com");
         Eek.addScore(10);
+        Thai.setScore(7.0);
+        John.setScore(8.0);
         insert(John);
         insert(Thai);
         insert(Eek);

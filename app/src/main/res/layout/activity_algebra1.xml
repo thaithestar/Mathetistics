@@ -10,32 +10,14 @@
     tools:context="com.example.thait.mathetistics.Algebra1"
     android:background="@color/DarkBlue">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Algebra 1"
         android:id="@+id/title"
-        android:textColor="@color/purple"
-        android:textSize="30sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-
-
-
-
-
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/back"
         android:textColor="@color/red"
-        android:textSize="15sp"
-        android:onClick="back2"
-        android:layout_below="@+id/title"
+        android:textSize="50dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
@@ -45,7 +27,7 @@
         android:layout_below="@+id/title"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp">
+        android:background="@color/white">
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,7 +36,7 @@
             android:text="Linear equation"
             android:id="@+id/lequation"
             android:textSize="30dp"
-            android:textColor="@color/white"
+            android:textColor="@color/blue"
             android:onClick="linear"/>
 
         <TextView
@@ -64,7 +46,7 @@
             android:text="Slope"
             android:id="@+id/slope"
             android:textSize="30dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/blue"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +55,7 @@
             android:text="Factoring"
             android:id="@+id/textView4"
             android:textSize="30dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/blue"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -82,7 +64,7 @@
             android:text="Distribution/FOIL"
             android:id="@+id/foil"
             android:textSize="30dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/blue"/>
     </LinearLayout>
 
 </RelativeLayout>
