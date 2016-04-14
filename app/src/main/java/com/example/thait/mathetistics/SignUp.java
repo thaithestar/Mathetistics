@@ -27,6 +27,7 @@ public class SignUp extends AppCompatActivity {
         confemail = (EditText) findViewById(R.id.confemail);
 
         signup.setOnClickListener(new View.OnClickListener() {@Override
+
             public void onClick(View v) {
                 user_str = username.getText().toString();
                 pass_str = password.getText().toString();
@@ -36,16 +37,16 @@ public class SignUp extends AppCompatActivity {
 
                 if (user_str != null) {
                     //Check if user info is valid
-                    if (MainActivity.database.findName(user_str) == true) {
+                    if (MainActivity.database.findName(user_str)) {
                         Toast.makeText(getApplicationContext(), "Username already exists!",
                                 Toast.LENGTH_SHORT).show();
-                    } else if (MainActivity.database.findEmail(email_str) == true) {
+                    } else if (MainActivity.database.findEmail(email_str)) {
                         Toast.makeText(getApplicationContext(), "Email already exists!",
                                 Toast.LENGTH_SHORT).show();
-                    } else if ((pass_str.equals(confpw_str)) == false) {
+                    } else if (!(pass_str.equals(confpw_str))){
                         Toast.makeText(getApplicationContext(), "Passwords do not match!",
                                 Toast.LENGTH_SHORT).show();
-                    } else if ((email_str.equals(confemail_str)) == false) {
+                    } else if (!(email_str.equals(confemail_str))) {
                         Toast.makeText(getApplicationContext(), "Email addresses do not match!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
@@ -53,7 +54,7 @@ public class SignUp extends AppCompatActivity {
                         User newUser = new User(user_str, pass_str, email_str);
                         //Add user to database, then switch views
                         MainActivity.database.insert(newUser);
-                        Intent log = new Intent(SignUp.this, Choice.class);
+                        Intent log = new Intent(SignUp.this, MainActivity.class);
                         startActivity(log);
                     }
                 }

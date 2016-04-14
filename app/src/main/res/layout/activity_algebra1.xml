@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.thait.mathetistics.Algebra1"
-    android:background="@color/DarkBlue">
+    android:background="@color/green">
 
     <TextView
         android:layout_width="wrap_content"

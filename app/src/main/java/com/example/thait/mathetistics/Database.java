@@ -15,7 +15,7 @@ public class Database {
 
     public void examples(){
         User John  = new User("John1","jgasao","gasao@wisc.edu");
-        User Thai = new User("Thai","thai9","tthao6@wisc.edu");
+        User Thai = new User("Thai","thai","tthao6@wisc.edu");
         User Eek = new User("Eek","algor1","al@gmail.com");
         Eek.addScore(10.0);
         Thai.setScore(7.0);

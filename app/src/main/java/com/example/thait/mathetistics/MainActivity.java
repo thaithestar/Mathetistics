@@ -9,6 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 public class MainActivity extends AppCompatActivity {
 
     public static Database database = new Database();
@@ -23,14 +32,51 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public boolean read(){
+
+            BufferedReader br = null;
+
+            try {
+
+                String sCurrentLine;
+                InputStream iS = this.getResources().getAssets().open("Alg1.txt");
+                br = new BufferedReader(new InputStreamReader(iS));
+                String[] qArray = new String[6];
+                int i = 0;
+                while((sCurrentLine = br.readLine()) != null){
+
+                    qArray[i] = sCurrentLine;
+                    i++;
+                    if(i == 6 ) {
+                        Question tempQ = new Question(qArray[0], qArray[1], qArray[2],
+                                qArray[3], qArray[4], qArray[5]);
+                        database.addQ(tempQ);
+                        i= 0;
+                    }
+
+                }
+                return true;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        return false;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(!read()){
+            System.exit(-1);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         login = (Button)findViewById(R.id.Login);
         userName = (EditText)findViewById(R.id.username);
         passwords = (EditText)findViewById(R.id.password);
-        database.examples();
+        if(database.getUList().size() == 0){
+            database.examples();
+        }
         login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

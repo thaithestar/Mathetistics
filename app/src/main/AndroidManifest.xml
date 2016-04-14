@@ -29,7 +29,8 @@
         <activity android:name=".PythagoreanTheorem" />
         <activity android:name=".Compete" />
         <activity android:name=".Rank" />
-        <activity android:name=".Exercise"></activity>
+        <activity android:name=".Exercise" />
+        <activity android:name=".Scored"></activity>
     </application>
 
 </manifest>

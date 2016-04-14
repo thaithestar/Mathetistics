@@ -7,6 +7,65 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.thait.mathetistics.Exercise">
+    tools:context="com.example.thait.mathetistics.Exercise"
+    android:background="@color/black">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/textq" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="61dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ans1"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:layout_gravity="center"
+            android:id="@+id/ans1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ans2"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginTop="50dp"
+            android:textSize="25dp"
+            android:id="@+id/ans2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:text="ans3"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:id="@+id/ans3"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="ans4"
+            android:textSize="25dp"
+            android:id="@+id/ans4"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>
