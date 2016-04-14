@@ -5,7 +5,7 @@ package com.example.thait.mathetistics;
  */
 public class User {
     private String username,password,email;
-    private int score;
+    private double score;
 
     public User(String username, String password,String email) {
         this.email = email;
@@ -14,14 +14,14 @@ public class User {
         score = 0;
     }
 
-    public void addScore(int value){
+    public void addScore(double value){
         score += value;
     }
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 

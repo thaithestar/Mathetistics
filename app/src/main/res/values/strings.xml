@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Mathetistics</string>
     <string name="title_activity_topic_selection">TopicSelection</string>
+    <string name="title_activity_compete">Compete</string>
 </resources>

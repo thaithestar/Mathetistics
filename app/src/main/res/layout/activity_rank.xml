@@ -7,28 +7,35 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.thait.mathetistics.Geometry"
-    android:background="@color/Orange">
+    tools:context="com.example.thait.mathetistics.Rank"
+    android:background="@color/PeachPuff">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Geometry"
-        android:id="@+id/title"
-        android:textColor="@color/green"
+        android:text="Ranks"
         android:textSize="50dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView5"
+        android:textColor="@color/OrangeRed"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/white">
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView5">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/display"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30dp"/>
     </LinearLayout>
+
 
 </RelativeLayout>

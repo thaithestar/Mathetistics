@@ -17,7 +17,9 @@ public class Database {
         User John  = new User("John1","jgasao","gasao@wisc.edu");
         User Thai = new User("Thai","thai9","tthao6@wisc.edu");
         User Eek = new User("Eek","algor1","al@gmail.com");
-        Eek.addScore(10);
+        Eek.addScore(10.0);
+        Thai.setScore(7.0);
+        John.setScore(8.0);
         insert(John);
         insert(Thai);
         insert(Eek);
@@ -49,12 +51,12 @@ public class Database {
     }
 
     public void sort(){
-        for(int i = 1; i < users.size();i++){
-            if(users.get(i).getScore() > users.get(i-1).getScore()){
-                User temp = users.get(i);
-                users.remove(users.get(i));
-                users.add(i-1,temp);
-                i--;
+        for(int i = 0; i < users.size()-1;i++){
+            if(users.get(i).getScore() < users.get(i+1).getScore()){
+                User temp = users.get(i+1);
+                users.remove(users.get(i+1));
+                users.add(i,temp);
+                i= -1;
             }
         }
     }
