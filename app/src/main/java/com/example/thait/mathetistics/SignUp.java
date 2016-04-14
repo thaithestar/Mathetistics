@@ -35,6 +35,7 @@ public class SignUp extends AppCompatActivity {
                 email_str = email.getText().toString();
                 confemail_str = confemail.getText().toString();
 
+            //TODO: check if email is valid somehow 
                 if (user_str != null) {
                     //Check if user info is valid
                     if (MainActivity.database.findName(user_str)) {
@@ -54,6 +55,8 @@ public class SignUp extends AppCompatActivity {
                         User newUser = new User(user_str, pass_str, email_str);
                         //Add user to database, then switch views
                         MainActivity.database.insert(newUser);
+                        Toast.makeText(getApplicationContext(), "Registration success!",
+                                Toast.LENGTH_SHORT).show();
                         Intent log = new Intent(SignUp.this, MainActivity.class);
                         startActivity(log);
                     }
