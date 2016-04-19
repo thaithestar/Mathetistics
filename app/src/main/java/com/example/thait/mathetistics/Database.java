@@ -63,6 +63,15 @@ public class Database {
         return false;
     }
 
+    public void updateScore(String username, double score){
+        for(int i = 0; i <users.size(); i++){
+            if(users.get(i).getUsername().equals(username)){
+                users.get(i).setScore(score);
+                sort();
+                break;
+            }
+        }
+    }
 
     public List<User> getUList(){
         return users;

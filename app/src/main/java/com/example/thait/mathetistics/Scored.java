@@ -27,8 +27,9 @@ public class Scored extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(MainActivity.getUserScore() < Compete.quizScore){
-                    MainActivity.getLoginUser();
-                    //MainActivity.database.insert();
+                    String userLogin = MainActivity.getLoginUser();
+                    double newScore = Compete.quizScore;
+                    MainActivity.database.updateScore(userLogin,newScore);
 
                 }
                 Intent intent = new Intent(Scored.this,Compete.class);

@@ -1,6 +1,10 @@
 package com.example.thait.mathetistics;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +14,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Exercise extends AppCompatActivity {
 
     TextView q,ans1,ans2,ans3,ans4,cAns;
-
+    TextView textViewTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,4 +94,40 @@ public class Exercise extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+    @SuppressLint("NewApi")
+    public class CounterClass extends CountDownTimer {
+
+        public CounterClass(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+            // TODO Auto-generated constructor stub
+        }
+
+        @SuppressLint("NewApi")
+        @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+        @Override
+        public void onTick(long millisUntilFinished) {
+            // TODO Auto-generated method stub
+            long millis = millisUntilFinished;
+            String hms = String.format("%02d",TimeUnit.MILLISECONDS.toSeconds(millis)
+                            - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+            System.out.println(hms);
+            textViewTime.setText(hms);
+        }
+
+        @Override
+        public void onFinish() {
+            Compete.QList.remove(0);
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+        }
+
+
+
+    }
 }
+
+
