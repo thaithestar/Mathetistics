@@ -10,34 +10,44 @@
     tools:context="com.example.thait.mathetistics.TopicSelection"
     android:background="@color/DarkBlue">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Welcome!"
-        android:textSize="50dp"
-        android:textColor="@color/Tomato"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="#A4A4A4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Choose a Subject"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Algebra 1"
-        android:textColor="@color/purple"
+        android:textColor="@color/blue"
+        android:layout_marginLeft="80dp"
         android:textSize="30sp"
         android:id="@+id/button"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/header"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:onClick="toAlgebra1"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
         android:text="Geometry"
-        android:textColor="@color/purple"
+        android:textColor="@color/blue"
         android:textSize="30sp"
         android:id="@+id/button2"
         android:layout_below="@+id/button"
@@ -46,11 +56,12 @@
         android:onClick="toGeometry"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
         android:text="Algebra 2"
         android:id="@+id/button3"
-        android:textColor="@color/purple"
+        android:textColor="@color/blue"
         android:textSize="30sp"
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
@@ -58,11 +69,12 @@
         android:onClick="toAlgebra2"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
         android:text="Calculus"
         android:id="@+id/button4"
-        android:textColor="@color/purple"
+        android:textColor="@color/blue"
         android:textSize="30sp"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
@@ -71,11 +83,12 @@
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
         android:text="Exercises"
         android:id="@+id/exercise"
-        android:textColor="@color/purple"
+        android:textColor="@color/blue"
         android:textSize="30sp"
         android:layout_below="@+id/button4"
         android:layout_centerHorizontal="true"

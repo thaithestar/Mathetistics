@@ -35,7 +35,7 @@ public class SignUp extends AppCompatActivity {
                 email_str = email.getText().toString();
                 confemail_str = confemail.getText().toString();
 
-            //TODO: check if email is valid somehow 
+            //TODO: check if email is valid somehow
                 if (user_str != null) {
                     //Check if user info is valid
                     if (MainActivity.database.findName(user_str)) {

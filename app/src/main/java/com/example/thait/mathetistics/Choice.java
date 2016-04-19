@@ -28,6 +28,6 @@ public class Choice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
         username = (TextView)findViewById(R.id.textView2);
-        username.setText(MainActivity.getLoginUser());
+        username.setText("Welcome " + MainActivity.getLoginUser());
     }
 }
