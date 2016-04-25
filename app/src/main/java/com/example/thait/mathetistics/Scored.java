@@ -11,7 +11,7 @@ import org.w3c.dom.Text;
 
 public class Scored extends AppCompatActivity {
     double userScored = Compete.quizScore;
-    TextView username,score;
+    TextView username,score,congrat;
     Button finish;
 
     @Override
@@ -19,18 +19,25 @@ public class Scored extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scored);
         username = (TextView)findViewById(R.id.theName);
+        congrat = (TextView)findViewById(R.id.gratz);
         score = (TextView)findViewById(R.id.theScore);
         finish = (Button)findViewById(R.id.doneB);
         username.setText(MainActivity.getLoginUser());
-        score.setText("Score: " + Compete.quizScore);
+        final double newScore = Compete.quizScore;
+        score.setText("Score: " + newScore + "/" + 7.0);
+        if(newScore > MainActivity.getUserScore()){
+            congrat.setText("NEW HIGH SCORE!!!\nCONGRATS");
+        }
+        else{
+            congrat.setText("");
+        }
+
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(MainActivity.getUserScore() < Compete.quizScore){
+                if(MainActivity.getUserScore() < newScore){
                     String userLogin = MainActivity.getLoginUser();
-                    double newScore = Compete.quizScore;
                     MainActivity.database.updateScore(userLogin,newScore);
-
                 }
                 Intent intent = new Intent(Scored.this,Compete.class);
                 startActivity(intent);

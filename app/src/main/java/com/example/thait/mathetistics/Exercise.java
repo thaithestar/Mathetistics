@@ -19,7 +19,8 @@ import java.util.concurrent.TimeUnit;
 public class Exercise extends AppCompatActivity {
 
     TextView q,ans1,ans2,ans3,ans4,cAns;
-    TextView textViewTime;
+    TextView rightViewTime,leftViewTime;
+    TextView lastTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,13 @@ public class Exercise extends AppCompatActivity {
         ans2 = (TextView) findViewById(R.id.ans2);
         ans3 = (TextView) findViewById(R.id.ans3);
         ans4 = (TextView) findViewById(R.id.ans4);
+        lastTime = (TextView)findViewById(R.id.curTime);
+        rightViewTime = (TextView)findViewById(R.id.rightTime);
+        leftViewTime = (TextView)findViewById(R.id.leftTime);
+        rightViewTime.setText("15");
+        leftViewTime.setText("15");
+        final CounterClass timer = new CounterClass(15000,1000);
+        timer.start();
         if (Compete.QList.size() > 0) {
             final Question randQ = Compete.QList.get(0);
             q.setText(randQ.getQuestion());
@@ -37,10 +45,15 @@ public class Exercise extends AppCompatActivity {
             ans2.setText(randQ.getAns2());
             ans3.setText(randQ.getAns3());
             ans4.setText(randQ.getAns4());
-
             ans1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try {
+                        timer.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    lastTime.setText(timer.toString());
                     if (randQ.correct(randQ.getAns1())) {
                         Compete.quizScore += 1.0;
                     }
@@ -54,6 +67,12 @@ public class Exercise extends AppCompatActivity {
             ans2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try {
+                        timer.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    lastTime.setText(timer.toString());
                     if (randQ.correct(randQ.getAns2())) {
                         Compete.quizScore += 1.0;
                     }
@@ -67,9 +86,15 @@ public class Exercise extends AppCompatActivity {
             ans3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try {
+                        timer.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     if (randQ.correct(randQ.getAns3())) {
                         Compete.quizScore += 1.0;
                     }
+                    lastTime.setText(timer.toString());
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
                     finish();
@@ -80,6 +105,13 @@ public class Exercise extends AppCompatActivity {
             ans4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try {
+                        timer.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    lastTime.setText(timer.toString());
+                    lastTime.setText(timer.toString());
                     if (randQ.correct(randQ.getAns4())) {
                         Compete.quizScore += 1.0;
                     }
@@ -96,7 +128,7 @@ public class Exercise extends AppCompatActivity {
     }
 
 
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @SuppressLint("NewApi")
     public class CounterClass extends CountDownTimer {
 
@@ -106,7 +138,7 @@ public class Exercise extends AppCompatActivity {
         }
 
         @SuppressLint("NewApi")
-        @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+        @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
         @Override
         public void onTick(long millisUntilFinished) {
             // TODO Auto-generated method stub
@@ -114,7 +146,8 @@ public class Exercise extends AppCompatActivity {
             String hms = String.format("%02d",TimeUnit.MILLISECONDS.toSeconds(millis)
                             - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
             System.out.println(hms);
-            textViewTime.setText(hms);
+            rightViewTime.setText(hms);
+            leftViewTime.setText(hms);
         }
 
         @Override

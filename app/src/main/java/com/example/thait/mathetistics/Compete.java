@@ -31,6 +31,11 @@ public class Compete extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addQuestion(View v){
+        Intent intent = new Intent(this,QRegistration.class);
+        startActivity(intent);
+    }
+
     public void Problems(View v){
         long seed = System.nanoTime();
         Collections.shuffle(tempQList, new Random(seed));

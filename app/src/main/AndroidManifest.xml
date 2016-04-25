@@ -30,7 +30,8 @@
         <activity android:name=".Compete" />
         <activity android:name=".Rank" />
         <activity android:name=".Exercise" />
-        <activity android:name=".Scored"></activity>
+        <activity android:name=".Scored" />
+        <activity android:name=".QRegistration"></activity>
     </application>
 
 </manifest>

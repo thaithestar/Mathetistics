@@ -10,6 +10,17 @@
     tools:context="com.example.thait.mathetistics.Exercise"
     android:background="@color/black">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="27dp"
+        android:id="@+id/top">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,6 +28,27 @@
         android:textSize="25dp"
         android:textColor="@color/white"
         android:id="@+id/textq" />
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="TI"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/lime"
+        android:id="@+id/rightTime"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="TI"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/lime"
+        android:id="@+id/leftTime"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -25,7 +57,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="61dp">
+        android:layout_below="@+id/top">
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,6 +77,15 @@
             android:layout_marginTop="50dp"
             android:textSize="25dp"
             android:id="@+id/ans2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="CurTIme"
+            android:id="@+id/curTime"
+            android:textColor="@color/lime"
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
