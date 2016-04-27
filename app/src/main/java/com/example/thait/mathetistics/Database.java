@@ -65,7 +65,7 @@ public class Database {
 
     public void updateScore(String username, double score){
         for(int i = 0; i <users.size(); i++){
-            if(users.get(i).getUsername().equals(username)){
+            if(users.get(i).getUsername().equalsIgnoreCase(username)){
                 users.get(i).setScore(score);
                 sort();
                 break;

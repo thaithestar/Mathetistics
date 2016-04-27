@@ -24,7 +24,7 @@ public class Scored extends AppCompatActivity {
         finish = (Button)findViewById(R.id.doneB);
         username.setText(MainActivity.getLoginUser());
         final double newScore = Compete.quizScore;
-        score.setText("Score: " + newScore + "/" + 7.0);
+        score.setText("Score: " + newScore + "/" + (15.0*7.0));
         if(newScore > MainActivity.getUserScore()){
             congrat.setText("NEW HIGH SCORE!!!\nCONGRATS");
         }
@@ -38,6 +38,7 @@ public class Scored extends AppCompatActivity {
                 if(MainActivity.getUserScore() < newScore){
                     String userLogin = MainActivity.getLoginUser();
                     MainActivity.database.updateScore(userLogin,newScore);
+                    MainActivity.setUserScore(newScore);
                 }
                 Intent intent = new Intent(Scored.this,Compete.class);
                 startActivity(intent);

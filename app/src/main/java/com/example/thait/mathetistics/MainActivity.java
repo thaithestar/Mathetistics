@@ -110,5 +110,8 @@ public class MainActivity extends AppCompatActivity {
     public static double getUserScore() {
         return userScore;
     }
+    public static void setUserScore(double value){
+        userScore = value;
+    }
 
 }

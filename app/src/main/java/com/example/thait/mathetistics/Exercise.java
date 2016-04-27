@@ -20,7 +20,7 @@ public class Exercise extends AppCompatActivity {
 
     TextView q,ans1,ans2,ans3,ans4,cAns;
     TextView rightViewTime,leftViewTime;
-    TextView lastTime;
+    int timeLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,15 @@ public class Exercise extends AppCompatActivity {
         ans2 = (TextView) findViewById(R.id.ans2);
         ans3 = (TextView) findViewById(R.id.ans3);
         ans4 = (TextView) findViewById(R.id.ans4);
-        lastTime = (TextView)findViewById(R.id.curTime);
         rightViewTime = (TextView)findViewById(R.id.rightTime);
         leftViewTime = (TextView)findViewById(R.id.leftTime);
         rightViewTime.setText("15");
         leftViewTime.setText("15");
-        final CounterClass timer = new CounterClass(15000,1000);
+        final CounterClass timer = new CounterClass(16000,1000);
         timer.start();
+
+
+
         if (Compete.QList.size() > 0) {
             final Question randQ = Compete.QList.get(0);
             q.setText(randQ.getQuestion());
@@ -48,14 +50,11 @@ public class Exercise extends AppCompatActivity {
             ans1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    try {
-                        timer.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    lastTime.setText(timer.toString());
+                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timer.cancel();
+                    //lastTime.setText(timer.toString());
                     if (randQ.correct(randQ.getAns1())) {
-                        Compete.quizScore += 1.0;
+                        Compete.quizScore += 1.0 * timeLeft;
                     }
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
@@ -67,14 +66,10 @@ public class Exercise extends AppCompatActivity {
             ans2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    try {
-                        timer.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    lastTime.setText(timer.toString());
+                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timer.cancel();
                     if (randQ.correct(randQ.getAns2())) {
-                        Compete.quizScore += 1.0;
+                        Compete.quizScore += 1.0 * timeLeft;
                     }
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
@@ -86,15 +81,11 @@ public class Exercise extends AppCompatActivity {
             ans3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    try {
-                        timer.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timer.cancel();
                     if (randQ.correct(randQ.getAns3())) {
-                        Compete.quizScore += 1.0;
+                        Compete.quizScore += 1.0 * timeLeft;
                     }
-                    lastTime.setText(timer.toString());
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
                     finish();
@@ -105,15 +96,10 @@ public class Exercise extends AppCompatActivity {
             ans4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    try {
-                        timer.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    lastTime.setText(timer.toString());
-                    lastTime.setText(timer.toString());
+                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timer.cancel();
                     if (randQ.correct(randQ.getAns4())) {
-                        Compete.quizScore += 1.0;
+                        Compete.quizScore += 1.0 * timeLeft;
                     }
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
@@ -122,6 +108,7 @@ public class Exercise extends AppCompatActivity {
                 }
             });
         }else{
+            timer.cancel();
             Intent intent = new Intent(this,Scored.class);
             startActivity(intent);
         }
@@ -145,17 +132,19 @@ public class Exercise extends AppCompatActivity {
             long millis = millisUntilFinished;
             String hms = String.format("%02d",TimeUnit.MILLISECONDS.toSeconds(millis)
                             - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-            System.out.println(hms);
+            //System.out.println(hms);
             rightViewTime.setText(hms);
             leftViewTime.setText(hms);
         }
 
         @Override
         public void onFinish() {
-            Compete.QList.remove(0);
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
+            if(Compete.QList.size() > 0) {
+                Compete.QList.remove(0);
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
         }
 
 

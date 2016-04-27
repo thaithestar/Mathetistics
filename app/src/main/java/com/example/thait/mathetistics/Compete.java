@@ -18,7 +18,7 @@ public class Compete extends AppCompatActivity {
 
     TextView username,score;
     public static List<Question> tempQList = MainActivity.database.getQList();
-    public static List<Question> QList = new ArrayList<Question>();
+    public static List<Question> QList;
     public static double quizScore;
 
     public void logoutC(View v){
@@ -37,10 +37,11 @@ public class Compete extends AppCompatActivity {
     }
 
     public void Problems(View v){
+        QList = new ArrayList<Question>();
         long seed = System.nanoTime();
         Collections.shuffle(tempQList, new Random(seed));
         Iterator<Question> itr = tempQList.iterator();
-        for(int i =0; i < 6; i++){
+        for(int i =0; i < 7; i++){
             QList.add(itr.next());
         }
         quizScore = 0;
