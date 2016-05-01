@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.thait.mathetistics">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,7 +34,8 @@
         <activity android:name=".Rank" />
         <activity android:name=".Exercise" />
         <activity android:name=".Scored" />
-        <activity android:name=".QRegistration"></activity>
+        <activity android:name=".QRegistration" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

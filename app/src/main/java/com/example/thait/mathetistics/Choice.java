@@ -6,12 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.firebase.client.Firebase;
+
 public class Choice extends AppCompatActivity {
 
     TextView username;
+    private Firebase ref = new Firebase(Constants.FIREBASE_URL);
+
     public void logout(View v){
-        Intent intent = new Intent(this,MainActivity.class);
+        ref.unauth();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+//        Intent intent = new Intent(this,MainActivity.class);
+//        startActivity(intent);
     }
 
     public void compete(View v){
