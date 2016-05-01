@@ -76,10 +76,11 @@ public class MainActivity extends AppCompatActivity {
         // Check authentication
         mRef = new Firebase(Constants.FIREBASE_URL);
         if (mRef.getAuth() == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+            loadLoginView();
+//            Intent intent = new Intent(this, LoginActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(intent);
 
 //            login = (Button) findViewById(R.id.Login);
 //            email = (EditText) findViewById(R.id.username);
@@ -169,10 +170,10 @@ public class MainActivity extends AppCompatActivity {
             loadLoginView();
         }
 
-        Intent intent = new Intent(MainActivity.this, Choice.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+//        Intent intent = new Intent(MainActivity.this, Choice.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        startActivity(intent);
     }
 
 
