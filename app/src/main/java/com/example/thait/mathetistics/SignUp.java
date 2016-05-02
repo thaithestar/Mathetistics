@@ -13,9 +13,12 @@ import android.widget.Toast;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignUp extends AppCompatActivity {
-    protected EditText username, password, email, confpw, confemail;
-    String user_str, pass_str, confpw_str, email_str, confemail_str;
+    protected EditText password, email, confpw;
+    String pass_str, confpw_str, email_str;
     Button signup;
 
 
@@ -25,11 +28,9 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         signup = (Button) findViewById(R.id.btn_sign_up);
-        username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         email = (EditText) findViewById(R.id.email);
         confpw = (EditText) findViewById(R.id.confpw);
-        confemail = (EditText) findViewById(R.id.confemail);
 
         final Firebase ref = new Firebase(Constants.FIREBASE_URL);
 
@@ -37,19 +38,16 @@ public class SignUp extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-                user_str = username.getText().toString();
+                email_str = email.getText().toString();
                 pass_str = password.getText().toString();
                 confpw_str = confpw.getText().toString();
-                email_str = email.getText().toString();
-                confemail_str = confemail.getText().toString();
 
-                user_str = user_str.trim();
+
+                email_str = email_str.trim();
                 pass_str = pass_str.trim();
                 confpw_str = confpw_str.trim();
-                email_str = email_str.trim();
-                confemail_str = confemail_str.trim();
 
-                if (user_str.isEmpty() || pass_str.isEmpty() || email_str.isEmpty()) {
+                if (pass_str.isEmpty() || email_str.isEmpty()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this);
                     builder.setMessage("Please make sure you enter a username, email address, and password!")
                             .setTitle(R.string.signup_error_title)
@@ -57,28 +55,16 @@ public class SignUp extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
-                    // Check if info is valid
-                    if (user_str != null) {
-                        //Check if user info is valid
-/*                    if (MainActivity.database.findName(user_str)) {
-                        Toast.makeText(getApplicationContext(), "Username already exists!",
-                                Toast.LENGTH_SHORT).show();
-                    } else if (MainActivity.database.findEmail(email_str)) {
-                        Toast.makeText(getApplicationContext(), "Email already exists!",
-                                Toast.LENGTH_SHORT).show();
-                    } else
-*/
+
                         if (!(pass_str.equals(confpw_str))) {
                             Toast.makeText(getApplicationContext(), "Passwords do not match!",
                                     Toast.LENGTH_SHORT).show();
-                        } else if (!(email_str.equals(confemail_str))) {
-                            Toast.makeText(getApplicationContext(), "Email addresses do not match!",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
+                        }else {
                             // Create a new user
                             ref.createUser(email_str, pass_str, new Firebase.ResultHandler() {
                                 @Override
                                 public void onSuccess() {
+
                                     AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this);
                                     builder.setMessage(R.string.signup_success)
                                             .setPositiveButton(R.string.login_button_label,
@@ -105,19 +91,7 @@ public class SignUp extends AppCompatActivity {
                                     dialog.show();
                                 }
                             });
-
-                            /*
-                            //Create user object
-                            User newUser = new User(user_str, pass_str, email_str);
-                            //Add user to database, then switch views
-                            MainActivity.database.insert(newUser);
-                            Toast.makeText(getApplicationContext(), "Registration success!",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent log = new Intent(SignUp.this, MainActivity.class);
-                            startActivity(log);
-                            */
                         }
-                    }
                 }
             }
         });

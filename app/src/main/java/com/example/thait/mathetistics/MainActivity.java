@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static String loginUser;
     private static double userScore;
     private Firebase mRef;
-    private String mUserId;
+    public static String mUserId;
 
 
     public void register(View view) {
@@ -76,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
         // Check authentication
         mRef = new Firebase(Constants.FIREBASE_URL);
         if (mRef.getAuth() == null) {
+            try {
+                mUserId = mRef.getAuth().getUid();
+            } catch (Exception e) {
+                loadLoginView();
+            }
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -161,18 +166,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //                }
 //            });
+        }else{
+            startActivity(new Intent(this,Compete.class));
         }
 
-        try {
-            mUserId = mRef.getAuth().getUid();
-        } catch (Exception e) {
-            loadLoginView();
-        }
 
-        Intent intent = new Intent(MainActivity.this, Choice.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+
     }
 
 

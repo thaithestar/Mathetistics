@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class Choice extends AppCompatActivity {
 
@@ -37,6 +40,18 @@ public class Choice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
         username = (TextView)findViewById(R.id.textView2);
-        username.setText("Welcome " + MainActivity.getLoginUser());
+        Firebase ref1 = new Firebase(Constants.FIREBASE_URL + "/username");
+        ref1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.getValue(String.class);
+                username.setText("Welcome " + name);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 }

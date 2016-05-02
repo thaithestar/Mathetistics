@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -62,13 +64,34 @@ public class LoginActivity extends AppCompatActivity {
                     final String email = emailAddress;
 
                     //Log in with an email/password combination
+                    final String finalPass = pass;
                     ref.authWithPassword(email, pass, new Firebase.AuthResultHandler() {
                         @Override
-                        public void onAuthenticated(AuthData authData) {
+                        public void onAuthenticated(final AuthData authData) {
                             //Authenticated successfully with payload authData
-                            Map<String, Object> map = new HashMap<String, Object>();
-                            map.put("email", email);
-                            ref.child("users").child(authData.getUid()).updateChildren(map);
+                            Firebase childbase = ref.child("users").child(authData.getUid()).child("username");
+                            final String userID = authData.getUid();
+                            childbase.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    String uName = dataSnapshot.getValue(String.class);
+                                    if(uName == null){
+                                        Map<String, Object> map = new HashMap<String, Object>();
+                                        map.put("username","user_str");
+                                        map.put("password", finalPass);
+                                        map.put("email", email);
+                                        map.put("score","0.00");
+                                        ref.child("users").child(userID).updateChildren(map);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(FirebaseError firebaseError) {
+
+                                }
+                            });
+
+
 
                             Intent log = new Intent(LoginActivity.this, Choice.class);
                             log.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
