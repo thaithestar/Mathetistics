@@ -3,7 +3,6 @@ package com.example.thait.mathetistics;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static String loginUser;
     private static double userScore;
     private Firebase mRef;
-    public static String mUserId;
+    private String mUserId;
     public static List<String> usedNames = new ArrayList<String>();
 
 
@@ -74,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         if (!read()) {
             System.exit(-1);
         }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -83,15 +82,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Check authentication
         mRef = new Firebase(Constants.FIREBASE_URL);
-        Firebase usedRef = mRef.child("Usednames");
+        Firebase usedRef = mRef.child("usednames");
         usedRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String,Object> theNames = dataSnapshot.getValue(Map.class);
-                if(theNames != null){
+                Map<String, Object> theNames = dataSnapshot.getValue(Map.class);
+                if (theNames != null) {
                     System.out.print("In First UsedName");
                     for (Map.Entry<String, Object> entry : theNames.entrySet()) {
-                        usedNames.add((String)entry.getValue());
+                        usedNames.add((String) entry.getValue());
                     }
                 }
             }
@@ -196,7 +195,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
             startActivity(new Intent(this,Choice.class));
         }
-
 
 
     }

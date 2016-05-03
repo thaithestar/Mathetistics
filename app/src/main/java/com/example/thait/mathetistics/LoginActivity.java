@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         signUpButton = (Button) findViewById(R.id.goToSignUp);
         emailEditText = (EditText) findViewById(R.id.email);
         passwordEditText = (EditText) findViewById(R.id.password);
+        passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         final Firebase ref = new Firebase(Constants.FIREBASE_URL);
 
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 emailAddress = emailAddress.trim();
                 pass = pass.trim();
+
 
                 if (emailAddress.isEmpty() || pass.isEmpty()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);

@@ -3,12 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.thait.mathetistics.QRegistration"
-    android:background="@color/DarkBlue">
+    android:background="#2196F3">
 
 
     <LinearLayout
@@ -24,11 +20,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:text="Question Registration"
+            android:text="Submit your own questions!"
             android:textSize="25sp"
             android:textColor="@color/white"
             android:textStyle="bold"/>
-    </LinearLayout>
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +48,7 @@
             android:id="@+id/ans1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Choice"
+            android:hint="1. First Answer"
             android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
@@ -60,7 +56,7 @@
             android:id="@+id/ans2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Second Choice"
+            android:hint="2. Second Answer"
             android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
@@ -68,7 +64,7 @@
             android:id="@+id/ans3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Third Choice"
+            android:hint="3. Third Answer"
             android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
@@ -76,7 +72,7 @@
             android:id="@+id/ans4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fourth Choice"
+            android:hint="4. Fourth Answer"
             android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
