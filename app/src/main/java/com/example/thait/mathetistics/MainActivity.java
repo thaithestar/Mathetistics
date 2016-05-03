@@ -3,15 +3,23 @@ package com.example.thait.mathetistics;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private static double userScore;
     private Firebase mRef;
     public static String mUserId;
+    public static List<String> usedNames = new ArrayList<String>();
 
 
     public void register(View view) {
@@ -65,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         if (!read()) {
             System.exit(-1);
         }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -75,6 +83,25 @@ public class MainActivity extends AppCompatActivity {
 
         // Check authentication
         mRef = new Firebase(Constants.FIREBASE_URL);
+        Firebase usedRef = mRef.child("Usednames");
+        usedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String,Object> theNames = dataSnapshot.getValue(Map.class);
+                if(theNames != null){
+                    System.out.print("In First UsedName");
+                    for (Map.Entry<String, Object> entry : theNames.entrySet()) {
+                        usedNames.add((String)entry.getValue());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
         if (mRef.getAuth() == null) {
             try {
                 mUserId = mRef.getAuth().getUid();
@@ -167,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            });
         }else{
-            startActivity(new Intent(this,Compete.class));
+            startActivity(new Intent(this,Choice.class));
         }
 
 

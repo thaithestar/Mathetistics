@@ -2,9 +2,12 @@ package com.example.thait.mathetistics;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +40,9 @@ public class Exercise extends AppCompatActivity {
         leftViewTime.setText("15");
         final CounterClass timer = new CounterClass(16000,1000);
         timer.start();
-
+        FragmentManager fragmentManager = getFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        final Correct frag1 = new Correct();
 
 
         if (Compete.QList.size() > 0) {
@@ -47,15 +52,41 @@ public class Exercise extends AppCompatActivity {
             ans2.setText(randQ.getAns2());
             ans3.setText(randQ.getAns3());
             ans4.setText(randQ.getAns4());
+
+            final boolean firstC = randQ.correct(randQ.getAns1());
+            final boolean secondC = randQ.correct(randQ.getAns2());
+            final boolean thirdC = randQ.correct(randQ.getAns3());
+            final boolean fourthC = randQ.correct(randQ.getAns4());
+
             ans1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     timeLeft = Integer.parseInt(leftViewTime.getText().toString());
                     timer.cancel();
-                    //lastTime.setText(timer.toString());
-                    if (randQ.correct(randQ.getAns1())) {
+                    if (firstC) {
                         Compete.quizScore += 1.0 * timeLeft;
+                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
                     }
+                    else if(secondC){
+                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(thirdC){
+                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(fourthC){
+                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }
+                    delayTime();
+                    //fragmentTransaction.remove(frag1);
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
                     finish();
@@ -68,9 +99,28 @@ public class Exercise extends AppCompatActivity {
                 public void onClick(View v) {
                     timeLeft = Integer.parseInt(leftViewTime.getText().toString());
                     timer.cancel();
-                    if (randQ.correct(randQ.getAns2())) {
+                    if (secondC) {
                         Compete.quizScore += 1.0 * timeLeft;
+                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(firstC){
+                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }else if(thirdC){
+                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }else if(fourthC){
+                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
                     }
+                    delayTime();
+                    //fragmentTransaction.remove(frag1);
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
                     finish();
@@ -83,9 +133,30 @@ public class Exercise extends AppCompatActivity {
                 public void onClick(View v) {
                     timeLeft = Integer.parseInt(leftViewTime.getText().toString());
                     timer.cancel();
-                    if (randQ.correct(randQ.getAns3())) {
+                    if (thirdC) {
                         Compete.quizScore += 1.0 * timeLeft;
+                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(secondC){
+                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(firstC){
+                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(fourthC){
+                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
                     }
+                    delayTime();
+                    //fragmentTransaction.remove(frag1);
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
                     finish();
@@ -98,9 +169,29 @@ public class Exercise extends AppCompatActivity {
                 public void onClick(View v) {
                     timeLeft = Integer.parseInt(leftViewTime.getText().toString());
                     timer.cancel();
-                    if (randQ.correct(randQ.getAns4())) {
+                    if (fourthC) {
                         Compete.quizScore += 1.0 * timeLeft;
+                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }else if(firstC){
+                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(secondC){
+                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                    }else if(thirdC){
+                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
                     }
+                    delayTime();
+                    //fragmentTransaction.remove(frag1);
                     Compete.QList.remove(0);
                     Intent intent = getIntent();
                     finish();
@@ -149,6 +240,16 @@ public class Exercise extends AppCompatActivity {
 
 
 
+    }
+
+    private void delayTime(){
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        },1000);
     }
 }
 

@@ -82,6 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                                         map.put("email", email);
                                         map.put("score","0.00");
                                         ref.child("users").child(userID).updateChildren(map);
+                                        Intent newIntent = new Intent(LoginActivity.this,Username.class);
+                                        newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(newIntent);
                                     }
                                 }
 
@@ -90,8 +94,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
                             });
-
-
 
                             Intent log = new Intent(LoginActivity.this, Choice.class);
                             log.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

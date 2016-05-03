@@ -49,7 +49,7 @@ public class SignUp extends AppCompatActivity {
 
                 if (pass_str.isEmpty() || email_str.isEmpty()) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this);
-                    builder.setMessage("Please make sure you enter a username, email address, and password!")
+                    builder.setMessage("Please make sure you enter a email address and password!")
                             .setTitle(R.string.signup_error_title)
                             .setPositiveButton(android.R.string.ok, null);
                     AlertDialog dialog = builder.create();
