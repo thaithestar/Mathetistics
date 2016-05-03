@@ -33,11 +33,12 @@
         android:layout_marginRight="50dp"
         android:orientation="vertical">
 
+
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
@@ -59,21 +60,7 @@
             android:textColorHint="@color/white"
             android:paddingTop="20dp"/>
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:textColorHint="@color/white"
-            android:paddingTop="20dp"/>
 
-        <EditText
-            android:id="@+id/confemail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Email"
-            android:textColorHint="@color/white"
-            android:paddingTop="20dp"/>
 
     </LinearLayout>
 

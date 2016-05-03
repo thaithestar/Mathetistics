@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -20,8 +25,10 @@ public class Compete extends AppCompatActivity {
     public static List<Question> tempQList = MainActivity.database.getQList();
     public static List<Question> QList;
     public static double quizScore;
+    Firebase ref = new Firebase(Constants.FIREBASE_URL);
 
     public void logoutC(View v){
+        ref.unauth();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
@@ -54,7 +61,33 @@ public class Compete extends AppCompatActivity {
         setContentView(R.layout.activity_compete);
         username = (TextView)findViewById(R.id.textView2);
         score = (TextView)findViewById(R.id.textView3);
-        username.setText(MainActivity.getLoginUser());
-        score.setText("High Score: " + MainActivity.getUserScore());
+        Firebase ref = new Firebase(Constants.FIREBASE_URL);
+        Firebase refName = ref.child("users").child(ref.getAuth().getUid()).child("username");
+        Firebase refScore = ref.child("users").child(ref.getAuth().getUid()).child("score");
+        refScore.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String stringScore = dataSnapshot.getValue(String.class);
+                score.setText("High Score: " + stringScore);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.print("Error in Scored");
+            }
+        });
+
+        refName.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String theUsername = dataSnapshot.getValue(String.class);
+                username.setText(theUsername);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.print("Error in Username");
+            }
+        });
     }
 }
