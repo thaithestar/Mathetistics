@@ -13,22 +13,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_gravity="center"
         android:id="@+id/linearLayout2">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Username"
-        android:id="@+id/theName"
-        android:layout_marginTop="67dp"
-        android:textColor="@color/Gold"
-        android:textSize="30dp"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Username"
+            android:id="@+id/theName"
+            android:layout_marginTop="67dp"
+            android:textColor="@color/Gold"
+            android:textSize="30dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Score"
+            android:id="@+id/theScore"
+            android:textColor="@color/LightSalmon"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="congrats"
+            android:id="@+id/gratz"
+            android:textColor="@color/red"
+            android:textSize="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
 
@@ -45,27 +66,4 @@
         android:textSize="20dp"
         android:onClick="done"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Score"
-        android:id="@+id/theScore"
-        android:textColor="@color/LightSalmon"
-        android:textSize="30dp"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_alignLeft="@+id/linearLayout2"
-        android:layout_alignStart="@+id/linearLayout2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="congrats"
-        android:id="@+id/gratz"
-        android:textColor="@color/red"
-        android:textSize="40dp"
-        android:layout_below="@+id/theScore"
-        android:layout_alignLeft="@+id/theScore"
-        android:layout_alignStart="@+id/theScore"
-        android:layout_marginTop="20dp"/>
 </RelativeLayout>

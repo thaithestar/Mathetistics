@@ -24,64 +24,80 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Username"
-        android:id="@+id/textView2"
-        android:layout_marginTop="80dp"
-        android:textColor="@color/Gold"
-        android:textSize="30dp"
-        android:layout_alignLeft="@+id/compete"
-        android:layout_alignStart="@+id/compete" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Score"
-        android:id="@+id/textView3"
-        android:textColor="@color/LightSalmon"
-        android:textSize="30dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/compete"
-        android:layout_alignStart="@+id/compete" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Do Exercise"
-        android:id="@+id/compete"
-        android:textColor="@color/blue"
-        android:textSize="30sp"
-        android:onClick="Problems"
-        android:layout_above="@+id/ranked"
-        android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Username"
+                android:id="@+id/textView2"
+                android:layout_marginTop="80dp"
+                android:textColor="@color/Gold"
+                android:textSize="30dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Display Ranking"
-        android:id="@+id/ranked"
-        android:textColor="@color/blue"
-        android:textSize="30sp"
-        android:onClick="ranked"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/compete"
-        android:layout_alignStart="@+id/compete" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Score"
+                android:id="@+id/textView3"
+                android:textColor="@color/LightSalmon"
+                android:textSize="30dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add a Question"
-        android:textColor="@color/blue"
-        android:textSize="30sp"
-        android:onClick="addQuestion"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/compete"
-        android:layout_alignStart="@+id/compete"
-        android:layout_below="@+id/ranked"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Do Exercise"
+                android:id="@+id/compete"
+                android:textColor="@color/blue"
+                android:textSize="30sp"
+                android:onClick="Problems"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Display Ranking"
+                android:id="@+id/ranked"
+                android:textColor="@color/blue"
+                android:textSize="30sp"
+                android:onClick="ranked"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add a Question"
+                android:textColor="@color/blue"
+                android:textSize="30sp"
+                android:onClick="addQuestion"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -94,9 +110,9 @@
         android:layout_alignParentEnd="true"
         android:textColor="@color/Red"
         android:textSize="20dp"
-        android:onClick="logoutC"/>
-
-
-
+        android:onClick="logoutC"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        />
 
 </RelativeLayout>
