@@ -45,7 +45,7 @@ public class Choice extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.getValue(String.class);
-                username.setText("Welcome " + name);
+                username.setText("Welcome \n" + name);
             }
 
             @Override
