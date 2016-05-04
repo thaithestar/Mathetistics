@@ -24,33 +24,6 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dp">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:hint="Email Address"
-            android:textColorHint="@color/white"
-            android:id="@+id/email"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:hint="Password"
-            android:ems="10"
-            android:textColorHint="@color/white"
-            android:id="@+id/password"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,6 +32,23 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp">
 
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:hint="Email Address"
+                android:textColorHint="@color/white"
+                android:id="@+id/email"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Password"
+                android:ems="10"
+                android:textColorHint="@color/white"
+                android:id="@+id/password"/>
+
             <Button
                 android:id="@+id/Login"
                 android:text="Log In"
@@ -66,7 +56,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
-                android:background="@color/blue"/>
+                android:background="@color/blue"
+                android:layout_marginTop="60dp"/>
 
             <Button
                 android:id="@+id/goToSignUp"
@@ -78,5 +69,4 @@
                 android:textColor="@color/blue"/>
         </LinearLayout>
 
-    </LinearLayout>
 </RelativeLayout>
