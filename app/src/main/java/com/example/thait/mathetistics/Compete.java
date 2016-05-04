@@ -1,8 +1,8 @@
 package com.example.thait.mathetistics;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,8 +10,6 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +24,11 @@ public class Compete extends AppCompatActivity {
     public static List<Question> QList;
     public static double quizScore;
     Firebase ref = new Firebase(Constants.FIREBASE_URL);
+
+    public void clickMainMenu(View v) {
+        Intent intent = new Intent(this, Choice.class);
+        startActivity(intent);
+    }
 
     public void logoutC(View v){
         ref.unauth();

@@ -61,15 +61,17 @@ public class QRegistration extends AppCompatActivity {
                 else {
                     if (firstAns || sAns || tAns || fourthAns) {
                         if (same1 || same2 || same3) {
-                            Toast.makeText(getApplicationContext(), "Repetitive Choices",
+                            Toast.makeText(getApplicationContext(), "All answers must be different",
                                     Toast.LENGTH_SHORT).show();
                         } else {
+                            Toast.makeText(getApplicationContext(), "Your question has been submitted!",
+                                    Toast.LENGTH_SHORT).show();
                             Question q = new Question(theQ, firstC, secondC, thirdC, fourthC, correctC);
                             MainActivity.database.addQ(q);
                             startActivity(new Intent(QRegistration.this, Compete.class));
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Invalid Correct Answer",
+                        Toast.makeText(getApplicationContext(), "Invalid correct answer",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }

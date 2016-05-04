@@ -29,33 +29,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ranked Challenge"
-        android:id="@+id/compete"
-        android:textColor="@color/blue"
-        android:textSize="25sp"
-        android:onClick="compete"
-        android:layout_gravity="center"
-        android:layout_above="@+id/learn"
-        android:layout_alignLeft="@+id/learn"
-        android:layout_alignStart="@+id/learn" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ranked Challenge"
+            android:id="@+id/compete"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:onClick="compete"
+            android:layout_gravity="center"
+            android:layout_above="@+id/learn"
+            android:layout_alignLeft="@+id/learn"
+            android:layout_alignStart="@+id/learn" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go Learn"
-        android:id="@+id/learn"
-        android:textColor="@color/blue"
-        android:textSize="30sp"
-        android:onClick="learn"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go Learn"
+            android:id="@+id/learn"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:onClick="learn"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
     </LinearLayout>
 
     <Button
@@ -67,7 +69,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="@color/blue"
+        android:textColor="@color/red"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:textSize="20dp"
