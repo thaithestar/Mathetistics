@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,8 +22,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Exercise extends AppCompatActivity {
 
-    TextView q,ans1,ans2,ans3,ans4,cAns;
-    TextView rightViewTime,leftViewTime;
+    Button ans1,ans2,ans3,ans4,cAns, ok;
+    TextView rightViewTime,leftViewTime, q;
     int timeLeft;
 
     //TODO: add cancel button to game
@@ -32,20 +33,22 @@ public class Exercise extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise);
         q = (TextView) findViewById(R.id.textq);
-        ans1 = (TextView) findViewById(R.id.ans1);
-        ans2 = (TextView) findViewById(R.id.ans2);
-        ans3 = (TextView) findViewById(R.id.ans3);
-        ans4 = (TextView) findViewById(R.id.ans4);
+        ans1 = (Button) findViewById(R.id.ans1);
+        ans2 = (Button) findViewById(R.id.ans2);
+        ans3 = (Button) findViewById(R.id.ans3);
+        ans4 = (Button) findViewById(R.id.ans4);
+
         rightViewTime = (TextView)findViewById(R.id.rightTime);
         leftViewTime = (TextView)findViewById(R.id.leftTime);
         rightViewTime.setText("15");
         leftViewTime.setText("15");
         final CounterClass timer = new CounterClass(16000,1000);
         timer.start();
+
         FragmentManager fragmentManager = getFragmentManager();
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         final Correct frag1 = new Correct();
-
+        final Incorrect frag2 = new Incorrect();
 
         if (Compete.QList.size() > 0) {
             final Question randQ = Compete.QList.get(0);
@@ -67,32 +70,32 @@ public class Exercise extends AppCompatActivity {
                     timer.cancel();
                     if (firstC) {
                         Compete.quizScore += 1.0 * timeLeft;
-                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag1);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                     }
                     else if(secondC){
-                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3, frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(thirdC){
-                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(fourthC){
-                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }
                     delayTime();
                     //fragmentTransaction.remove(frag1);
-                    Compete.QList.remove(0);
-                    Intent intent = getIntent();
-                    finish();
-                    startActivity(intent);
+//                    Compete.QList.remove(0);
+//                    Intent intent = getIntent();
+//                    finish();
+//                    startActivity(intent);
                 }
             });
 
@@ -103,30 +106,30 @@ public class Exercise extends AppCompatActivity {
                     timer.cancel();
                     if (secondC) {
                         Compete.quizScore += 1.0 * timeLeft;
-                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag1);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(firstC){
-                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                     }else if(thirdC){
-                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                     }else if(fourthC){
-                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }
-                    delayTime();
-                    //fragmentTransaction.remove(frag1);
-                    Compete.QList.remove(0);
-                    Intent intent = getIntent();
-                    finish();
-                    startActivity(intent);
+//                    delayTime();
+//                    //fragmentTransaction.remove(frag1);
+//                    Compete.QList.remove(0);
+//                    Intent intent = getIntent();
+//                    finish();
+//                    startActivity(intent);
                 }
             });
 
@@ -137,32 +140,32 @@ public class Exercise extends AppCompatActivity {
                     timer.cancel();
                     if (thirdC) {
                         Compete.quizScore += 1.0 * timeLeft;
-                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag1);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(secondC){
-                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(firstC){
-                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(fourthC){
-                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }
-                    delayTime();
+//                    delayTime();
                     //fragmentTransaction.remove(frag1);
-                    Compete.QList.remove(0);
-                    Intent intent = getIntent();
-                    finish();
-                    startActivity(intent);
+//                    Compete.QList.remove(0);
+//                    Intent intent = getIntent();
+//                    finish();
+//                    startActivity(intent);
                 }
             });
 
@@ -173,31 +176,31 @@ public class Exercise extends AppCompatActivity {
                     timer.cancel();
                     if (fourthC) {
                         Compete.quizScore += 1.0 * timeLeft;
-                        fragmentTransaction.add(R.id.last,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag1);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                     }else if(firstC){
-                        fragmentTransaction.add(R.id.top,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(secondC){
-                        fragmentTransaction.add(R.id.middle1,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }else if(thirdC){
-                        fragmentTransaction.add(R.id.middle2,frag1);
+                        fragmentTransaction.add(R.id.linearLayout3,frag2);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
 
                     }
-                    delayTime();
-                    //fragmentTransaction.remove(frag1);
-                    Compete.QList.remove(0);
-                    Intent intent = getIntent();
-                    finish();
-                    startActivity(intent);
+//                    delayTime();
+//                    //fragmentTransaction.remove(frag1);
+//                    Compete.QList.remove(0);
+//                    Intent intent = getIntent();
+//                    finish();
+//                    startActivity(intent);
                 }
             });
         }else{
