@@ -38,12 +38,21 @@
         android:layout_below="@+id/header">
 
         <TextView
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="12"
+            android:id="@+id/num"
+            android:textColor="@color/white"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Username"
             android:id="@+id/display"
-            android:textColor="@color/white"
+            android:textColor="@color/Gold"
             android:textSize="25dp"/>
 
         <TextView
@@ -54,8 +63,7 @@
             android:id="@+id/score_id"
             android:textSize="25dp"
             android:textColor="@color/DarkOrange"
-            android:layout_gravity="right"
-            android:layout_marginLeft="10dp"/>
+            android:layout_gravity="right"/>
 
 
     </LinearLayout>

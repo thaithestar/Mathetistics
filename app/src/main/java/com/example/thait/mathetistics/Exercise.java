@@ -26,7 +26,10 @@ public class Exercise extends AppCompatActivity {
     TextView rightViewTime,leftViewTime, q;
     int timeLeft;
 
-    //TODO: add cancel button to game
+    @Override public void onBackPressed(){
+        android.os.Process.killProcess(android.os.Process.myPid());
+        startActivity(new Intent(this,Compete.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
