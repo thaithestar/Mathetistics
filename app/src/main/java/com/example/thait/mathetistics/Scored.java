@@ -12,14 +12,19 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import org.w3c.dom.Text;
 
 import java.util.Map;
+
 
 public class Scored extends AppCompatActivity {
     double userScored = Compete.quizScore;
     TextView username,score,congrat;
     Button finish;
+
+    @Override public void onBackPressed(){
+        this.finish();
+        startActivity(new Intent(this,Compete.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
