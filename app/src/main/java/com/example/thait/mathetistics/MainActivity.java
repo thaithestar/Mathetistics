@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static Database database = new Database();
+//    public static Database database = new Database();
 //    Button login;
 //    EditText email, passwords;
     private static String loginUser;
@@ -36,49 +36,49 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public boolean read() {
-
-        BufferedReader br = null;
-
-        try {
-
-            String sCurrentLine;
-            InputStream iS = this.getResources().getAssets().open("Alg1.txt");
-            br = new BufferedReader(new InputStreamReader(iS));
-            String[] qArray = new String[6];
-            int i = 0;
-            while ((sCurrentLine = br.readLine()) != null) {
-
-                qArray[i] = sCurrentLine;
-                i++;
-                if (i == 6) {
-                    Question tempQ = new Question(qArray[0], qArray[1], qArray[2],
-                            qArray[3], qArray[4], qArray[5]);
-                    database.addQ(tempQ);
-                    i = 0;
-                }
-
-            }
-            return true;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+//    public boolean read() {
+//
+//        BufferedReader br = null;
+//
+//        try {
+//
+//            String sCurrentLine;
+//            InputStream iS = this.getResources().getAssets().open("Alg1.txt");
+//            br = new BufferedReader(new InputStreamReader(iS));
+//            String[] qArray = new String[6];
+//            int i = 0;
+//            while ((sCurrentLine = br.readLine()) != null) {
+//
+//                qArray[i] = sCurrentLine;
+//                i++;
+//                if (i == 6) {
+//                    Question tempQ = new Question(qArray[0], qArray[1], qArray[2],
+//                            qArray[3], qArray[4], qArray[5]);
+//                    database.addQ(tempQ);
+//                    i = 0;
+//                }
+//
+//            }
+//            return true;
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (!read()) {
-            System.exit(-1);
-        }
+//        if (!read()) {
+//            System.exit(-1);
+//        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (database.getUList().size() == 0) {
-            database.examples();
-        }
+//        if (database.getUList().size() == 0) {
+//            database.examples();
+//        }
 
         // Check authentication
         mRef = new Firebase(Constants.FIREBASE_URL);
