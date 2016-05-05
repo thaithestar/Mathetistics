@@ -25,6 +25,10 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView5">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -41,7 +45,8 @@
             android:id="@+id/display"
             android:textColor="@color/colorPrimary"
             android:textSize="30dp"/>
-    </LinearLayout>
 
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

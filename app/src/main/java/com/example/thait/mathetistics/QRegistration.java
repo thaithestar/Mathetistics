@@ -8,9 +8,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class QRegistration extends AppCompatActivity {
 
-    Button confirm,cancel;
+    Button confirm;
     EditText question,ans1,ans2,ans3,ans4,corans;
 
     public void clickCancel(View view) {
@@ -22,7 +31,7 @@ public class QRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qregistration);
-
+        final Firebase ref = new Firebase(Constants.FIREBASE_URL);
         confirm = (Button)findViewById(R.id.btn_confirm);
         question = (EditText)findViewById(R.id.question);
         ans1 = (EditText)findViewById(R.id.ans1);
@@ -34,12 +43,12 @@ public class QRegistration extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String theQ = question.getText().toString();
-                String firstC = ans1.getText().toString();
-                String secondC = ans2.getText().toString();
-                String thirdC = ans3.getText().toString();
-                String fourthC = ans4.getText().toString();
-                String correctC = corans.getText().toString();
+                final String theQ = question.getText().toString();
+                final String firstC = ans1.getText().toString();
+                final String secondC = ans2.getText().toString();
+                final String thirdC = ans3.getText().toString();
+                final String fourthC = ans4.getText().toString();
+                final String correctC = corans.getText().toString();
                 boolean blank1 = firstC.equals("");
                 boolean blank2 = secondC.equals("");
                 boolean blank3 = thirdC.equals("");
@@ -61,22 +70,53 @@ public class QRegistration extends AppCompatActivity {
                 else {
                     if (firstAns || sAns || tAns || fourthAns) {
                         if (same1 || same2 || same3) {
-                            Toast.makeText(getApplicationContext(), "All answers must be different",
+                            Toast.makeText(getApplicationContext(), "Repetitive Choices",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getApplicationContext(), "Your question has been submitted!",
-                                    Toast.LENGTH_SHORT).show();
-                            Question q = new Question(theQ, firstC, secondC, thirdC, fourthC, correctC);
-                            MainActivity.database.addQ(q);
+                            final Firebase qRef = ref.child("Questions");
+                            qRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    Map<String,Object> map1 = dataSnapshot.getValue(Map.class);
+                                    if(map1 != null){
+                                        String name = naming(map1);
+                                               Map<String,Object> map2 = new HashMap<String, Object>();
+                                                map2.put("ans1",firstC);
+                                                map2.put("ans2",secondC);
+                                                map2.put("ans3",thirdC);
+                                                map2.put("ans4",fourthC);
+                                                map2.put("correctAns",correctC);
+                                                map2.put("theQuestion",theQ);
+                                                qRef.child(name).updateChildren(map2);
+
+                                    }
+                                    qRef.removeEventListener(this);
+                                }
+
+                                @Override
+                                public void onCancelled(FirebaseError firebaseError) {
+
+                                }
+                            });
                             startActivity(new Intent(QRegistration.this, Compete.class));
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Invalid correct answer",
+                        Toast.makeText(getApplicationContext(), "Invalid Correct Answer",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
 
+    }
+
+    private String naming(Map<String,Object> map){
+        int i = 1;
+        if(map != null){
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                i++;
+            }
+        }
+        return "question" + i;
     }
 }
