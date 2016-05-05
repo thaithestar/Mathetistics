@@ -30,6 +30,11 @@ public class Compete extends AppCompatActivity {
     public static double quizScore;
     Firebase ref = new Firebase(Constants.FIREBASE_URL);
 
+    public void mainMenuClicked(View v) {
+        Intent i = new Intent(this,Choice.class);
+        startActivity(i);
+    }
+
 
     public void logoutC(View v){
         ref.unauth();

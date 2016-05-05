@@ -101,7 +101,7 @@
                 android:text="Main Menu"
                 android:textColor="@color/blue"
                 android:textSize="30sp"
-                android:onClick="clickMainMenu"
+                android:onClick="mainMenuClicked"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 />
