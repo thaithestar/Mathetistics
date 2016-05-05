@@ -48,9 +48,6 @@ public class Scored extends AppCompatActivity {
                         map.put("score", newScore +"" );
                         ref2.updateChildren(map);
                     }
-                    else{
-                        congrat.setText("");
-                    }
                 }
 
                 @Override
