@@ -37,9 +37,11 @@ public class Compete extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void clickMainMenu(View v){
+        Intent intent = new Intent(this,Choice.class);
+        startActivity(intent);
+    }
     public void ranked(View v){
-        topUsers = new ArrayList<User>();
-        addUsers();
         Intent intent = new Intent(this,Rank.class);
         startActivity(intent);
     }
@@ -73,9 +75,12 @@ public class Compete extends AppCompatActivity {
         score = (TextView)findViewById(R.id.textView3);
         tempQList = new ArrayList<Question>();
         Firebase ref = new Firebase(Constants.FIREBASE_URL);
-        Firebase refName = ref.child("users").child(ref.getAuth().getUid()).child("username");
-        Firebase refScore = ref.child("users").child(ref.getAuth().getUid()).child("score");
+        final Firebase refName = ref.child("users").child(ref.getAuth().getUid()).child("username");
+        final Firebase refScore = ref.child("users").child(ref.getAuth().getUid()).child("score");
         final Firebase qRef = ref.child("Questions");
+
+        topUsers = new ArrayList<User>();
+        addingUsers();
 
         qRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -168,50 +173,57 @@ public class Compete extends AppCompatActivity {
         return tempQ;
     }
 
-    private void addUsers(){
-        final Firebase idRef = ref.child("users");
-        idRef.addValueEventListener(new ValueEventListener() {
+
+    public void addingUsers(){
+        final Firebase userIdRef = ref.child("users");
+        userIdRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String,Object> map1 = dataSnapshot.getValue(Map.class);
-                if(map1 != null){
-                    List<String> usersID = getList(map1);
-                    Iterator<String> itr = usersID.iterator();
-                    while(itr.hasNext()){
-                        Firebase userRef = idRef.child(itr.next());
-                        userRef.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                Map<String,Object> map2 = dataSnapshot.getValue(Map.class);
-                                if(map2 != null){
-                                    String name = (String)map2.get("username");
-                                    String strScore = (String)map2.get("score");
-                                    double userScore = Double.parseDouble(strScore);
-                                    User tempUser = new User(name,userScore);
-                                    if(topUsers.size() == 0) {
-                                        topUsers.add(tempUser);
-                                    }
-                                    else{
-                                        for(int i = 0; i < topUsers.size();i++){
-                                            if(topUsers.get(i).compareTo(tempUser) == -1){
-                                                topUsers.add(i,tempUser);
-                                                break;
-                                            }
-                                            else if(i == topUsers.size() -1){
-                                                topUsers.add(tempUser);
-                                            }
+                Map<String,Object> firstMap = dataSnapshot.getValue(Map.class);
+                List<String> tempList = new ArrayList<String>();
+                if(firstMap != null){
+                    for (Map.Entry<String, Object> entry : firstMap.entrySet()) {
+                        tempList.add(entry.getKey());
+                    }
+                }
+                for(int i = 0; i < tempList.size(); i++){
+                    final Firebase userRef = ref.child("users").child(tempList.get(i));
+                    userRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Map<String,Object> secondMap = dataSnapshot.getValue(Map.class);
+                            if(secondMap != null){
+                                String name = (String)secondMap.get("username");
+                                String strScore = (String)secondMap.get("score");
+                                double userScore = Double.parseDouble(strScore);
+                                User tempUser = new User(name,userScore);
+                                if(topUsers.size() == 0 || topUsers.isEmpty() || userScore == 0) {
+                                    topUsers.add(tempUser);
+                                }
+                                else{
+                                    for(int i = 0; i < topUsers.size();i++){
+                                        if(topUsers.get(i).compareTo(tempUser) == -1){
+                                            topUsers.add(i,tempUser);
+                                            break;
+                                        }
+                                        else if(i == topUsers.size() -1){
+                                            topUsers.add(tempUser);
                                         }
                                     }
                                 }
+                                userRef.removeEventListener(this);
                             }
+                        }
 
-                            @Override
-                            public void onCancelled(FirebaseError firebaseError) {
+                        @Override
+                        public void onCancelled(FirebaseError firebaseError) {
 
-                            }
-                        });
-                    }
+                        }
+                    });
                 }
+
+
+                userIdRef.removeEventListener(this);
             }
 
             @Override
@@ -219,6 +231,7 @@ public class Compete extends AppCompatActivity {
 
             }
         });
+
     }
 
 }

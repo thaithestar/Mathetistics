@@ -8,19 +8,22 @@ import java.util.List;
 
 public class Rank extends AppCompatActivity {
 
-    TextView display;
+    TextView display,score_value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
         display = (TextView)findViewById(R.id.display);
+        score_value = (TextView)findViewById(R.id.score_id);
         List<User> top = Compete.topUsers;
-        String stored = "";
+        String storedUsername = "";
+        String storedScore = "";
         for(int i = 0; i < top.size();i++){
-            stored += (i+1) + ". " + top.get(i).getUsername() + "\t" +
-                        top.get(i).getScore() + "\n";
+            storedUsername += (i+1) + ". " + top.get(i).getUsername() + "\n";
+            storedScore +=  top.get(i).getScore() + "\n";
         }
-        display.setText(stored);
+        display.setText(storedUsername);
+        score_value.setText(storedScore);
 
     }
 }

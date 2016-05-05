@@ -70,6 +70,9 @@ public class Username extends AppCompatActivity {
                 else if(usedName(userName)){
                     Toast.makeText(getApplicationContext(), "Used Name\nPlease Enter another username",
                             Toast.LENGTH_SHORT).show();
+                }else if(userName.length() > 13){
+                    Toast.makeText(getApplicationContext(), "Username must be under 13 characters",
+                            Toast.LENGTH_SHORT).show();
                 }
                 else{
                     final String finalUserName = userName;
