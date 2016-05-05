@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.thait.mathetistics.Compete"
-    android:background="#2196F3">
+    android:background="#2196F3"
+    android:id="@+id/compete_view">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +52,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Score"
                 android:id="@+id/textView3"
-                android:textColor="@color/LightSalmon"
+                android:textColor="@color/Orange"
                 android:textSize="30dp"/>
 
         </LinearLayout>
@@ -69,7 +70,7 @@
                 android:id="@+id/compete"
                 android:textColor="@color/blue"
                 android:textSize="30sp"
-                android:onClick="Problems"
+                android:onClick="playClicked"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"/>
 

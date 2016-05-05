@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 public class Exercise extends AppCompatActivity {
 
     Button ans1,ans2,ans3,ans4,cAns, ok;
-    TextView rightViewTime,leftViewTime, q;
+    TextView rightViewTime,qNum, q;
     int timeLeft;
 
     @Override public void onBackPressed(){
@@ -35,6 +35,7 @@ public class Exercise extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise);
+        qNum = (TextView) findViewById(R.id.qnum_edit);
         q = (TextView) findViewById(R.id.textq);
         ans1 = (Button) findViewById(R.id.ans1);
         ans2 = (Button) findViewById(R.id.ans2);
@@ -42,9 +43,11 @@ public class Exercise extends AppCompatActivity {
         ans4 = (Button) findViewById(R.id.ans4);
 
         rightViewTime = (TextView)findViewById(R.id.rightTime);
-        leftViewTime = (TextView)findViewById(R.id.leftTime);
+//        leftViewTime = (TextView)findViewById(R.id.leftTime);
         rightViewTime.setText("15");
-        leftViewTime.setText("15");
+//        leftViewTime.setText("15");
+
+        qNum.setText("Question " + Compete.nextQ() +"/7");
         final CounterClass timer = new CounterClass(16000,1000);
         timer.start();
 
@@ -69,7 +72,7 @@ public class Exercise extends AppCompatActivity {
             ans1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timeLeft = Integer.parseInt(rightViewTime.getText().toString());
                     timer.cancel();
                     if (firstC) {
                         Compete.quizScore += 1.0 * timeLeft;
@@ -104,7 +107,7 @@ public class Exercise extends AppCompatActivity {
             ans2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timeLeft = Integer.parseInt(rightViewTime.getText().toString());
                     timer.cancel();
                     if (secondC) {
                         Compete.quizScore += 1.0 * timeLeft;
@@ -137,7 +140,7 @@ public class Exercise extends AppCompatActivity {
             ans3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timeLeft = Integer.parseInt(rightViewTime.getText().toString());
                     timer.cancel();
                     if (thirdC) {
                         Compete.quizScore += 1.0 * timeLeft;
@@ -172,7 +175,7 @@ public class Exercise extends AppCompatActivity {
             ans4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    timeLeft = Integer.parseInt(leftViewTime.getText().toString());
+                    timeLeft = Integer.parseInt(rightViewTime.getText().toString());
                     timer.cancel();
                     if (fourthC) {
                         Compete.quizScore += 1.0 * timeLeft;
@@ -204,6 +207,7 @@ public class Exercise extends AppCompatActivity {
             });
         }else{
             timer.cancel();
+            Compete.resetQ();
             Intent intent = new Intent(this,Scored.class);
             startActivity(intent);
         }
@@ -229,7 +233,7 @@ public class Exercise extends AppCompatActivity {
                             - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
             //System.out.println(hms);
             rightViewTime.setText(hms);
-            leftViewTime.setText(hms);
+//            leftViewTime.setText(hms);
         }
 
         @Override

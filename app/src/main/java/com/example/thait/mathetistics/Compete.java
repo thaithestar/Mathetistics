@@ -1,5 +1,7 @@
 package com.example.thait.mathetistics;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ public class Compete extends AppCompatActivity {
     public static List<User> topUsers;
     public static double quizScore;
     Firebase ref = new Firebase(Constants.FIREBASE_URL);
+    public static int qnum = 0;
 
     @Override public void onBackPressed(){
         startActivity(new Intent(this,Choice.class));
@@ -40,17 +43,12 @@ public class Compete extends AppCompatActivity {
         startActivity(i);
     }
 
-
     public void logoutC(View v){
         ref.unauth();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 
-    public void clickMainMenu(View v){
-        Intent intent = new Intent(this,Choice.class);
-        startActivity(intent);
-    }
     public void ranked(View v){
         Intent intent = new Intent(this,Rank.class);
         startActivity(intent);
@@ -61,22 +59,37 @@ public class Compete extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Problems(View v){
-        QList = new ArrayList<Question>();
-        long seed = System.nanoTime();
-        if(tempQList != null) {
-            int i = 1;
-            Collections.shuffle(tempQList, new Random(seed));
-            Iterator<Question> itr = tempQList.iterator();
-            while(itr.hasNext() && i < 8) {
-                    QList.add(itr.next());
-                    i++;
-            }
-            quizScore = 0;
-            Intent intent = new Intent(this, Exercise.class);
-            startActivity(intent);
-        }
+//    public void Problems(View v){
+//        QList = new ArrayList<Question>();
+//        long seed = System.nanoTime();
+//        if(tempQList != null) {
+//            int i = 1;
+//            Collections.shuffle(tempQList, new Random(seed));
+//            Iterator<Question> itr = tempQList.iterator();
+//            while(itr.hasNext() && i < 8) {
+//                    QList.add(itr.next());
+//                    i++;
+//            }
+//            quizScore = 0;
+//            Intent intent = new Intent(this, Exercise.class);
+//            startActivity(intent);
+//        }
+//    }
+
+    public void playClicked(View v) {
+        Intent i = new Intent(this, Directions.class);
+        startActivity(i);
     }
+
+    public static int nextQ() {
+        qnum++;
+        return qnum;
+    }
+    public static void resetQ() {
+        qnum = 0;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,7 +158,7 @@ public class Compete extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String theUsername = dataSnapshot.getValue(String.class);
-                username.setText(theUsername);
+                username.setText("Hello " + theUsername + "!");
             }
 
             @Override
