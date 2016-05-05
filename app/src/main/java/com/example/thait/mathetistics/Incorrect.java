@@ -17,16 +17,16 @@ public class Incorrect extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_incorrect,
                 container, false);
 
-        Button ok = (Button)rootView.findViewById(R.id.ok_incorrect);
-        ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Compete.QList.remove(0);
-                Intent intent = new Intent(getActivity(), Exercise.class);
-                getActivity().finish();
-                startActivity(intent);
-            }
-        });
+//        Button ok = (Button)rootView.findViewById(R.id.ok_incorrect);
+//        ok.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Compete.QList.remove(0);
+//                Intent intent = new Intent(getActivity(), Exercise.class);
+//                getActivity().finish();
+//                startActivity(intent);
+//            }
+//        });
         // Inflate the layout for this fragment
         return rootView;
     }
