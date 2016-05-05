@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,56 +8,69 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.thait.mathetistics.Exercise"
+    android:orientation="vertical"
     android:background="#2196F3">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="27dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:id="@+id/top">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="TI"
+            android:textColor="@color/white"
+            android:id="@+id/rightTime"/>
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Question"
                 android:textSize="25dp"
                 android:textColor="@color/white"
                 android:id="@+id/textq" />
         </ScrollView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="TI"
+            android:textColor="@color/black"
+            android:id="@+id/leftTime"/>
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/top"
+        android:orientation="horizontal"
+        android:id="@+id/exerciseView">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="TI"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/lime"
-        android:id="@+id/rightTime"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="TI"
-        android:layout_alignParentLeft="true"
-        android:textColor="@color/lime"
-        android:id="@+id/leftTime"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@+id/top"
+        android:layout_below="@+id/exerciseView"
         android:id="@+id/linearLayout3">
 
         <Button
@@ -105,4 +118,4 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -41,7 +41,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Username"
                 android:id="@+id/textView2"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="70dp"
                 android:textColor="@color/Gold"
                 android:textSize="30dp"/>
 
