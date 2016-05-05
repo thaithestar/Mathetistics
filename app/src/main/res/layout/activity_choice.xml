@@ -3,53 +3,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.thait.mathetistics.Choice"
-    android:background="@color/DarkBlue">
+    android:background="#2196F3">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Username"
-        android:id="@+id/textView2"
-        android:textColor="@color/Gold"
-        android:textSize="25sp" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="#A4A4A4">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Welcome"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="80dp"
-        android:layout_below="@+id/textView2">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ranked Challenge"
-        android:id="@+id/compete"
-        android:textColor="@color/blue"
-        android:textSize="25sp"
-        android:onClick="compete"
-        android:layout_gravity="center"
-        android:layout_above="@+id/learn"
-        android:layout_alignLeft="@+id/learn"
-        android:layout_alignStart="@+id/learn" />
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go Learn"
-        android:id="@+id/learn"
-        android:textColor="@color/blue"
-        android:textSize="30sp"
-        android:onClick="learn"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ranked Challenge"
+            android:id="@+id/compete"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:onClick="compete"
+            android:layout_gravity="center"
+            android:layout_above="@+id/learn"
+            android:layout_alignLeft="@+id/learn"
+            android:layout_alignStart="@+id/learn" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go Learn"
+            android:id="@+id/learn"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:onClick="learn"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
     </LinearLayout>
 
     <Button
@@ -61,8 +69,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="@color/lime"
-        android:background="@color/DarkBlue"
+        android:textColor="@color/red"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:textSize="20dp"
         android:onClick="logout"/>
 

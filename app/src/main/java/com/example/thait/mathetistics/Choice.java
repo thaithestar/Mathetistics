@@ -11,8 +11,6 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import java.util.Map;
-
 public class Choice extends AppCompatActivity {
 
     TextView username;
@@ -42,14 +40,12 @@ public class Choice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
         username = (TextView)findViewById(R.id.textView2);
-        Firebase ref = new Firebase(Constants.FIREBASE_URL);
-        Firebase userRef = ref.child("users").child(ref.getAuth().getUid());
-        userRef.addValueEventListener(new ValueEventListener() {
+        Firebase ref1 = new Firebase(Constants.FIREBASE_URL + "/username");
+        ref1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String,Object> map = dataSnapshot.getValue(Map.class);
-                String theUsername = (String)map.get("username");
-                username.setText("Welcome " + theUsername);
+                String name = dataSnapshot.getValue(String.class);
+                username.setText("Welcome \n" + name);
             }
 
             @Override

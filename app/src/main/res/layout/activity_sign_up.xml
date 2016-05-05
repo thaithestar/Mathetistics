@@ -5,41 +5,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.thait.mathetistics.SignUp"
-    android:background="@color/DarkBlue">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="15dp"
-        android:background="#A4A4A4">
+        android:layout_marginTop="20dp"
+        android:padding="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:text="SIGN UP"
+            android:text="Sign Up"
             android:textSize="25sp"
-            android:textColor="@color/white"
+            android:textColor="@color/blue"
             android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="center">
 
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/black"
             android:paddingTop="20dp"/>
 
         <EditText
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:ems="10"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/black"
             android:paddingTop="20dp"/>
 
         <EditText
@@ -57,41 +57,28 @@
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
             android:ems="10"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/black"
             android:paddingTop="20dp"/>
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_gravity="center">
 
         <Button
             android:id="@+id/btn_sign_up"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Sign Up"
-            android:background="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:layout_marginRight="20dp"/>
+            android:layout_gravity="center"
+            android:background="@color/blue"
+            android:layout_marginTop="50dp"/>
 
         <Button
             android:id="@+id/cancel_sign_up"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:onClick="cancelClicked"
-            android:layout_marginLeft="20dp"/>
+            android:onClick="cancelClicked"/>
 
     </LinearLayout>
 

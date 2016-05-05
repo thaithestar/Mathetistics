@@ -25,6 +25,8 @@ public class Exercise extends AppCompatActivity {
     TextView rightViewTime,leftViewTime;
     int timeLeft;
 
+    //TODO: add cancel button to game
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
