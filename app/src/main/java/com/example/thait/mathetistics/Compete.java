@@ -220,16 +220,17 @@ public class Compete extends AppCompatActivity {
                                 String strScore = (String)secondMap.get("score");
                                 double userScore = Double.parseDouble(strScore);
                                 User tempUser = new User(name,userScore);
+                                final int listSize = topUsers.size();
                                 if(topUsers.size() == 0 || topUsers.isEmpty() || userScore == 0) {
                                     topUsers.add(tempUser);
                                 }
                                 else{
-                                    for(int i = 0; i < topUsers.size();i++){
+                                    for(int i = 0; i < listSize;i++){
                                         if(topUsers.get(i).compareTo(tempUser) == -1){
                                             topUsers.add(i,tempUser);
                                             break;
                                         }
-                                        else if(i == topUsers.size() -1){
+                                        else if(i == listSize -1){
                                             topUsers.add(tempUser);
                                         }
                                     }
