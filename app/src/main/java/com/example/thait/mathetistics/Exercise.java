@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -41,6 +42,7 @@ public class Exercise extends AppCompatActivity {
         ans2 = (Button) findViewById(R.id.ans2);
         ans3 = (Button) findViewById(R.id.ans3);
         ans4 = (Button) findViewById(R.id.ans4);
+        MediaPlayer mp = MediaPlayer.create(Exercise.this,R.raw.tetris);
 
         rightViewTime = (TextView)findViewById(R.id.rightTime);
 //        leftViewTime = (TextView)findViewById(R.id.leftTime);
