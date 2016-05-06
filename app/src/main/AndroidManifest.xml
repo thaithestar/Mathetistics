@@ -20,10 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUp" />
-        <activity
-            android:name=".TopicSelection"
-            android:label="@string/title_activity_topic_selection"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".TopicSelection" />
         <activity android:name=".Algebra1" />
         <activity android:name=".Algebra2" />
         <activity android:name=".Geometry" />
