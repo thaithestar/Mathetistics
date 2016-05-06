@@ -12,6 +12,11 @@ import java.util.Random;
 
 public class Directions extends AppCompatActivity {
 
+    @Override public void onBackPressed(){
+        android.os.Process.killProcess(android.os.Process.myPid());
+        startActivity(new Intent(this,Compete.class));
+    }
+
     public void Problems(View v){
         Compete.QList = new ArrayList<Question>();
         long seed = System.nanoTime();

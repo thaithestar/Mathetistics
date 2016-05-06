@@ -54,55 +54,190 @@
         android:onClick="finishPt"/>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_below="@+id/first"
-        android:layout_width="180dp"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:id="@+id/linearLayout6">
+        android:id="@+id/linearLayout9">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a2"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/line1a"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="line1"
+            android:text=" = "
             android:textSize="25dp"
             android:textColor="@color/white"
-            android:id="@+id/line1"/>
+            android:id="@+id/equal_sign" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="b2"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/line1b"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="line2"
-            android:layout_marginTop="15dp"
+            android:text=" + "
             android:textSize="25dp"
             android:textColor="@color/white"
-            android:id="@+id/line2"/>
+            android:id="@+id/plus_sign" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="c2"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/line1c" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout9"
+        android:text="line2"
+        android:layout_marginTop="15dp"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/line2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/line2"
+        android:layout_below="@+id/linearLayout9"
+        android:text=" = "
+        android:layout_marginTop="15dp"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/equalS"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DROP"
+        android:id="@+id/button8"
+        android:layout_below="@+id/linearLayout9"
+        android:layout_toRightOf="@+id/equalS" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="line3"
+        android:layout_marginTop="15dp"
+        android:textSize="25dp"
+        android:layout_below="@+id/line2"
+        android:textColor="@color/white"
+        android:id="@+id/line3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/line2"
+        android:layout_below="@+id/equalS"
+        android:text=" = "
+        android:layout_marginTop="15dp"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/equalS2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DROP"
+        android:id="@+id/button9"
+        android:layout_below="@+id/equalS"
+        android:layout_toRightOf="@+id/equalS2" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="line3"
-            android:layout_marginTop="15dp"
-            android:textSize="25dp"
-            android:textColor="@color/white"
-            android:id="@+id/line3"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="line4"
+            android:text="x = "
+            android:layout_below="@+id/line3"
             android:layout_marginTop="15dp"
             android:textSize="25dp"
             android:textColor="@color/white"
             android:id="@+id/line4"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DROP"
+        android:id="@+id/button10"
+        android:layout_below="@+id/equalS2"
+        android:layout_toRightOf="@+id/line4" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="line5"
+            android:text="x = 10"
             android:layout_marginTop="15dp"
             android:textSize="25dp"
+            android:layout_below="@+id/line4"
             android:textColor="@color/white"
             android:id="@+id/line5"/>
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drag over"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:id="@+id/noDrag"
+        android:layout_below="@+id/first"
+        android:layout_alignLeft="@+id/drag1_box"
+        android:layout_alignStart="@+id/drag1_box" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noDrag"
+        android:layout_marginTop="7dp"
+        android:id="@+id/drag1_box"
+        android:layout_toRightOf="@+id/button8"
+        android:layout_marginLeft="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="62"
+        android:layout_marginTop="5dp"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:id="@+id/drag1_1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" + "
+            android:layout_marginTop="5dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:id="@+id/add_sign"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="82"
+            android:layout_marginTop="5dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:id="@+id/drag1_2"/>
 
     </LinearLayout>
 
@@ -110,25 +245,11 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignTop="@+id/linearLayout6"
-        android:layout_toRightOf="@+id/linearLayout6"
-        android:layout_toEndOf="@+id/linearLayout6">
+        android:layout_below="@+id/drag1_box"
+        android:layout_toRightOf="@+id/button8"
+        android:layout_marginLeft="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Drag over"
-            android:textSize="25dp"
-            android:textColor="@color/black"
-            android:id="@+id/noDrag"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="drag1"
-            android:layout_marginTop="5dp"
-            android:textSize="25dp"
-            android:textColor="@color/white"
-            android:id="@+id/drag1"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -145,6 +266,8 @@
 
 
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

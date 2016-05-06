@@ -7,6 +7,10 @@ import android.view.View;
 
 public class Geometry extends AppCompatActivity {
 
+    @Override public void onBackPressed(){
+        startActivity(new Intent(this,TopicSelection.class));
+    }
+
     public void pt(View v){
         startActivity(new Intent(this,Pt.class));
     }
