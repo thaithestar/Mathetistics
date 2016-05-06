@@ -47,10 +47,11 @@
             android:textSize="25dp"/>
 
         <TextView
-            android:layout_width="280dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Username"
+            android:maxWidth="250dp"
             android:id="@+id/display"
             android:textColor="@color/Gold"
             android:textSize="25dp"/>

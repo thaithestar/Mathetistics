@@ -1,68 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.thait.mathetistics.LoginActivity"
+    android:orientation="vertical"
     android:background="@color/white">
 
-    <LinearLayout
-        android:id="@+id/head"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_height="match_parent">
 
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/mathrelaylogo"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:layout_below="@+id/head"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/head"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mathrelaylogo"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Email Address"
-            android:textColorHint="@color/black"
-            android:id="@+id/email"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Email Address"
+                android:textColorHint="@color/black"
+                android:id="@+id/email"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Password"
-            android:ems="10"
-            android:textColorHint="@color/black"
-            android:id="@+id/password"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Password"
+                android:ems="10"
+                android:textColorHint="@color/black"
+                android:id="@+id/password"/>
 
-        <Button
-            android:id="@+id/Login"
-            android:text="Log In"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:background="@color/blue"
-            android:layout_marginTop="50dp"/>
+            <Button
+                android:id="@+id/Login"
+                android:text="Log In"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:background="@color/blue"
+                android:layout_marginTop="50dp"/>
 
-        <Button
-            android:id="@+id/goToSignUp"
-            android:text="Sign Up"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/blue"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/goToSignUp"
+                android:text="Sign Up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/blue"/>
+        </LinearLayout>
+    </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>

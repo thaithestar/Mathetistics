@@ -60,7 +60,7 @@ public class QRegistration extends AppCompatActivity {
                 boolean tAns = correctC.equals(thirdC);
                 boolean fourthAns = correctC.equals(fourthC);
                 boolean same1 = firstC.equalsIgnoreCase(secondC) || firstC.equalsIgnoreCase(thirdC)
-                                || firstC.equalsIgnoreCase(fourthC);
+                        || firstC.equalsIgnoreCase(fourthC);
                 boolean same2 = secondC.equalsIgnoreCase(thirdC) || secondC.equalsIgnoreCase(fourthC);
                 boolean same3 = thirdC.equalsIgnoreCase(fourthC);
                 if(blank1 || blank2 || blank3 || blank4 || blank5 || blank6) {
@@ -70,7 +70,7 @@ public class QRegistration extends AppCompatActivity {
                 else {
                     if (firstAns || sAns || tAns || fourthAns) {
                         if (same1 || same2 || same3) {
-                            Toast.makeText(getApplicationContext(), "Repetitive Choices",
+                            Toast.makeText(getApplicationContext(), "Answers must be different",
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             final Firebase qRef = ref.child("Questions");
@@ -80,15 +80,18 @@ public class QRegistration extends AppCompatActivity {
                                     Map<String,Object> map1 = dataSnapshot.getValue(Map.class);
                                     if(map1 != null){
                                         String name = naming(map1);
-                                               Map<String,Object> map2 = new HashMap<String, Object>();
-                                                map2.put("ans1",firstC);
-                                                map2.put("ans2",secondC);
-                                                map2.put("ans3",thirdC);
-                                                map2.put("ans4",fourthC);
-                                                map2.put("correctAns",correctC);
-                                                map2.put("theQuestion",theQ);
-                                                qRef.child(name).updateChildren(map2);
+                                        Map<String,Object> map2 = new HashMap<String, Object>();
+                                        map2.put("ans1",firstC);
+                                        map2.put("ans2",secondC);
+                                        map2.put("ans3",thirdC);
+                                        map2.put("ans4",fourthC);
+                                        map2.put("correctAns",correctC);
+                                        map2.put("theQuestion",theQ);
+                                        qRef.child(name).updateChildren(map2);
 
+                                        Toast.makeText(getApplicationContext(), "Success! Your " +
+                                                        "question has been submitted for review.",
+                                                Toast.LENGTH_SHORT).show();
                                     }
                                     qRef.removeEventListener(this);
                                 }
