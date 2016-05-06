@@ -4,76 +4,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.thait.mathetistics.Choice"
-    android:background="#2196F3">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="15dp"
-        android:background="#A4A4A4">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="Welcome"
-            android:textSize="25sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
-    </LinearLayout>
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="150dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp">
 
-        <Button
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ranked Challenge"
-            android:id="@+id/compete"
-            android:textColor="@color/blue"
-            android:textSize="30sp"
-            android:onClick="compete"
-            android:layout_gravity="center"
-            android:layout_above="@+id/learn"
-            android:layout_alignLeft="@+id/learn"
-            android:layout_alignStart="@+id/learn" />
+            android:src="@drawable/mathrelaylogo"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Go Learn"
+            android:layout_marginTop="70dp"
+            android:text="Enter Game"
+            android:id="@+id/compete"
+            android:textColor="@color/blue"
+            android:textSize="25sp"
+            android:onClick="compete" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Database"
             android:id="@+id/learn"
             android:textColor="@color/blue"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:onClick="learn"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
-    </LinearLayout>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Out"
-        android:id="@+id/button7"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="@color/red"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:textSize="20dp"
-        android:onClick="logout"/>
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Log Out"
+            android:id="@+id/button7"
+            android:textColor="@color/red"
+            android:textSize="25sp"
+            android:onClick="logout"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

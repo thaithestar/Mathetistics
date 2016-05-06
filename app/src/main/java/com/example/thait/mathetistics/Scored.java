@@ -23,7 +23,7 @@ public class Scored extends AppCompatActivity {
 
     @Override public void onBackPressed(){
         this.finish();
-        startActivity(new Intent(this,Compete.class));
+        startActivity(new Intent(this, Compete.class));
     }
 
     @Override
@@ -41,35 +41,33 @@ public class Scored extends AppCompatActivity {
         final double newScore = Compete.quizScore;
         score.setText("Score: " + newScore + "/" + (15.0*7.0));
 
-            ref2.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    Map<String,Object> map = dataSnapshot.getValue(Map.class);
-                    double oldScore = Double.parseDouble((String) map.get("score"));
-                    String theUsername = (String)map.get("username");
-                    username.setText(theUsername);
-                    if(newScore > oldScore){
-                        congrat.setText("NEW HIGH SCORE!!!\nCONGRATS");
-                        map.put("score", newScore +"" );
-                        ref2.updateChildren(map);
-                    }
-                }
-
-                @Override
-                public void onCancelled(FirebaseError firebaseError) {
-
-                }
-            });
-
-
-
-        finish.setOnClickListener(new View.OnClickListener() {
+        ref2.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Scored.this,Compete.class);
-                startActivity(intent);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String, Object> map = dataSnapshot.getValue(Map.class);
+                double oldScore = Double.parseDouble((String) map.get("score"));
+                String theUsername = (String) map.get("username");
+                username.setText(theUsername);
+                if (newScore > oldScore) {
+                    congrat.setText("NEW HIGH SCORE!!!\nCONGRATS");
+                    map.put("score", newScore + "");
+                    ref2.updateChildren(map);
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
             }
         });
 
+
+
+
+    }
+
+    public void finishClicked(View v) {
+        Intent intent = new Intent(this, Compete.class);
+        startActivity(intent);
     }
 }
