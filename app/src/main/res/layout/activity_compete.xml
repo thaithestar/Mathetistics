@@ -72,7 +72,8 @@
                 android:textSize="30sp"
                 android:onClick="playClicked"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round3"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -83,7 +84,8 @@
                 android:textSize="30sp"
                 android:onClick="ranked"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round3"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -94,7 +96,7 @@
                 android:onClick="addQuestion"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                />
+                android:background="@drawable/round3"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -105,7 +107,7 @@
                 android:onClick="mainMenuClicked"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                />
+                android:background="@drawable/round3"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -116,7 +118,7 @@
                 android:textSize="30dp"
                 android:onClick="logoutC"
                 android:layout_marginTop="10dp"
-                />
+                android:background="@color/green"/>
 
         </LinearLayout>
 

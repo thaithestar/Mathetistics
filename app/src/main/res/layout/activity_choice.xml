@@ -26,20 +26,22 @@
             android:id="@+id/compete"
             android:textColor="@color/blue"
             android:textSize="25sp"
-            android:onClick="compete" />
+            android:onClick="compete"
+            android:background="@drawable/round"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Student Database"
             android:id="@+id/learn"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:onClick="learn"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round4"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -50,7 +52,8 @@
             android:id="@+id/button7"
             android:textColor="@color/red"
             android:textSize="25sp"
-            android:onClick="logout"/>
+            android:onClick="logout"
+            android:background="@color/green"/>
     </LinearLayout>
 
 

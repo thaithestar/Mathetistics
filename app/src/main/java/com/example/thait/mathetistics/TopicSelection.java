@@ -7,6 +7,9 @@ import android.view.View;
 
 public class TopicSelection extends AppCompatActivity {
 
+    @Override public void onBackPressed(){
+        startActivity(new Intent(this,Choice.class));
+    }
 
     public void toAlgebra1(View view) {
         Intent intent = new Intent(this, Algebra1.class);
