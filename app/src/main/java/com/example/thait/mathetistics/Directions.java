@@ -1,6 +1,7 @@
 package com.example.thait.mathetistics;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class Directions extends AppCompatActivity {
-
+    public static int qSize;
     @Override public void onBackPressed(){
         android.os.Process.killProcess(android.os.Process.myPid());
         startActivity(new Intent(this,Compete.class));
@@ -29,6 +30,7 @@ public class Directions extends AppCompatActivity {
                 i++;
             }
             Compete.quizScore = 0;
+            qSize = Compete.QList.size();
             Intent intent = new Intent(this, Exercise.class);
             startActivity(intent);
         }

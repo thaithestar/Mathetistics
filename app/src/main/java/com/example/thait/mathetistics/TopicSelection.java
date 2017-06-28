@@ -31,6 +31,11 @@ public class TopicSelection extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void toMainMenu(View view) {
+        Intent intent = new Intent(this, Choice.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -42,7 +42,8 @@ public class Exercise extends AppCompatActivity {
         ans2 = (Button) findViewById(R.id.ans2);
         ans3 = (Button) findViewById(R.id.ans3);
         ans4 = (Button) findViewById(R.id.ans4);
-        MediaPlayer mp = MediaPlayer.create(Exercise.this,R.raw.tetris);
+
+//        MediaPlayer mp = MediaPlayer.create(Exercise.this,R.raw.tetris);
 
         rightViewTime = (TextView)findViewById(R.id.rightTime);
 //        leftViewTime = (TextView)findViewById(R.id.leftTime);
@@ -50,6 +51,9 @@ public class Exercise extends AppCompatActivity {
 //        leftViewTime.setText("15");
 
         qNum.setText("Question " + Compete.nextQ() +"/7");
+//        if (Compete.QList.size() == Directions.qSize) {
+//            mp.start();
+//        }
         final CounterClass timer = new CounterClass(16000,1000);
         timer.start();
 
@@ -210,6 +214,7 @@ public class Exercise extends AppCompatActivity {
         }else{
             timer.cancel();
             Compete.resetQ();
+//            mp.stop();
             Intent intent = new Intent(this,Scored.class);
             startActivity(intent);
         }
