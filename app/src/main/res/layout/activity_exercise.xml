@@ -32,7 +32,8 @@
             android:textSize="25sp"
             android:text="TI"
             android:textColor="@color/Gold"
-            android:id="@+id/rightTime"/>
+            android:id="@+id/rightTime"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -97,7 +98,8 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             android:layout_gravity="center"
-            android:id="@+id/ans1"/>
+            android:id="@+id/ans1"
+            android:background="@drawable/round5"/>
 
 
 
@@ -109,7 +111,8 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             android:id="@+id/ans2"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round5"/>
 
 
 
@@ -121,7 +124,8 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             android:id="@+id/ans3"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round5"/>
 
         <Button
             android:layout_width="match_parent"
@@ -131,7 +135,8 @@
             android:text="ans4"
             android:textSize="20dp"
             android:id="@+id/ans4"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round5"/>
 
     </LinearLayout>
 

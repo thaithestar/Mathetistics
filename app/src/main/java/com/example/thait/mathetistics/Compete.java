@@ -209,6 +209,7 @@ public class Compete extends AppCompatActivity {
                         tempList.add(entry.getKey());
                     }
                 }
+
                 for(int i = 0; i < tempList.size(); i++){
                     final Firebase userRef = ref.child("users").child(tempList.get(i));
                     userRef.addValueEventListener(new ValueEventListener() {

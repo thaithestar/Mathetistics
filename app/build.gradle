@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.example.thait.mathetistics"
@@ -31,5 +31,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
     compile 'com.android.support:design:24.0.0-alpha2'
     compile 'com.firebase:firebase-client-android:2.5.2'
+//    compile 'com.google.firebase:firebase-auth:11.0.2'
     compile 'com.android.support:support-v4:23.3.0'
 }

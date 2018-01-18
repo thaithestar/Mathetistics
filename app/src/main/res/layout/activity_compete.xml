@@ -73,7 +73,7 @@
                 android:onClick="playClicked"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/round3"/>
+                android:background="@drawable/round"/>
 
             <Button
                 android:layout_width="match_parent"
